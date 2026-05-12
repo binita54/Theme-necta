@@ -1,0 +1,895 @@
+// NECTA Learn — Components, layout, Moodle chrome (Design Guide §4–§7).
+// Fonts are linked in <head> via theme_necta core_renderer (not @import here).
+
+@import 'tokens';
+
+// Default design-token custom properties (accent --brand-orange* overridden after this file in PHP).
+:root {
+    --brand-orange: #{$necta-orange};
+    --brand-orange-deep: #{$necta-orange-deep};
+    --brand-orange-soft: #{$necta-orange-soft};
+    --brand: var(--brand-orange);
+    --brand-deep: var(--brand-orange-deep);
+    --brand-soft: var(--brand-orange-soft);
+    --accent-civ: #{$accent-civ};
+    --accent-it: #{$accent-it};
+    --accent-pm: #{$accent-pm};
+    --bg: #{$bg};
+    --surface: #{$surface};
+    --surface-2: #{$surface-2};
+    --surface-3: #{$surface-3};
+    --line: #{$line};
+    --line-strong: #{$line-strong};
+    --ink: #{$ink};
+    --ink-2: #{$ink-2};
+    --ink-3: #{$ink-3};
+    --ink-4: #{$ink-4};
+    --green: #{$green};
+    --green-soft: #{$green-soft};
+    --amber: #{$amber};
+    --amber-soft: #{$amber-soft};
+    --red: #{$red};
+    --red-soft: #{$red-soft};
+    --font-sans: #{$font-sans};
+    --font-display: #{$font-display};
+    --font-mono: #{$font-mono};
+    --radius: #{$radius};
+    --radius-sm: #{$radius-sm};
+    --radius-lg: #{$radius-lg};
+}
+
+// ---------------------------------------------------------------------------
+// Global base
+// ---------------------------------------------------------------------------
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+}
+
+// ---------------------------------------------------------------------------
+// Login page — split brand + card (Design Guide §1)
+// ---------------------------------------------------------------------------
+body.necta-login {
+    min-height: 100vh;
+}
+
+.necta-login-page {
+    min-height: 100vh;
+}
+
+.necta-login-split {
+    min-height: 100vh;
+}
+
+.necta-login-brand {
+    background: linear-gradient(
+        155deg,
+        var(--brand-orange-deep) 0%,
+        var(--brand-orange) 42%,
+        color-mix(in srgb, var(--brand-orange) 55%, #141210) 100%
+    );
+    color: #fff;
+    padding: 48px 40px 40px;
+
+    .necta-login-brand-inner {
+        max-width: 360px;
+    }
+
+    .necta-login-brand-logo {
+        max-width: 220px;
+        height: auto;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .necta-login-brand-title {
+        font-family: var(--font-display);
+        font-weight: 500;
+        color: #fff;
+        line-height: 1.25;
+    }
+
+    .necta-login-brand-tagline {
+        font-size: 15px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.88);
+    }
+}
+
+.necta-login-form-col {
+    background: var(--bg);
+}
+
+.necta-login-card {
+    max-width: 420px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 28px 26px 24px;
+    box-shadow: 0 20px 50px rgba(20, 17, 11, 0.08);
+
+    .login-wrapper {
+        padding: 0;
+    }
+
+    .login-container {
+        padding: 0;
+        max-width: none;
+    }
+
+    .loginform .login-heading:not(.visually-hidden) {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 500;
+        color: var(--ink);
+    }
+
+    .login-form .form-control-lg {
+        border-radius: var(--radius-sm);
+        border-color: var(--line-strong);
+        background: var(--surface);
+    }
+
+    .login-form-submit .btn-primary {
+        width: 100%;
+        border-radius: var(--radius-sm);
+    }
+
+    .login-divider {
+        border-color: var(--line);
+    }
+
+    .login-form-forgotpassword a {
+        color: var(--brand-orange);
+    }
+}
+
+@media (min-width: 992px) {
+    .necta-login-split .necta-login-card #loginlogo,
+    .necta-login-split .necta-login-card .login-logo {
+        display: none !important;
+    }
+
+    .necta-login-split .necta-login-card .login-heading:not(.visually-hidden) {
+        margin-bottom: 1.25rem !important;
+    }
+}
+
+.necta-footer-popover {
+    background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--ink);
+}
+
+code, pre, kbd, samp, .font-mono {
+    font-family: var(--font-mono);
+}
+
+// ---------------------------------------------------------------------------
+// Dark default (admin setting) — colour-scheme + token overrides (Guide §3)
+// ---------------------------------------------------------------------------
+body.necta-dark-default {
+    color-scheme: dark;
+    --bg: #141418;
+    --surface: #1e1e24;
+    --surface-2: #26262e;
+    --surface-3: #2c2c35;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.14);
+    --ink: #f4f2ec;
+    --ink-2: #d8d4cc;
+    --ink-3: #a8a49c;
+    --ink-4: #7a7670;
+    background: var(--bg);
+    color: var(--ink);
+}
+
+// ---------------------------------------------------------------------------
+// Layout — Sidebar (248px course index drawer at ≥992px, Guide §4)
+// ---------------------------------------------------------------------------
+body.layout-sidebar {
+    @media (min-width: 992px) {
+        #theme_boost-drawers-courseindex.drawer {
+            width: 248px;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Layout — Topbar (no persistent left rail; primary nav in header band)
+// ---------------------------------------------------------------------------
+body.layout-topbar {
+    @media (min-width: 992px) {
+        .drawer-toggler.drawer-left-toggle {
+            display: none !important;
+        }
+        #theme_boost-drawers-courseindex.drawer:not(.show) {
+            transform: translate3d(-105%, 0, 0);
+        }
+    }
+}
+
+// Drawers + navbar hairline (Design Guide §4)
+.navbar.fixed-top,
+.navbar.sticky-top {
+    box-shadow: 0 1px 0 var(--line);
+}
+
+.drawer.drawer-left,
+.drawer.drawer-right {
+    border-color: var(--line);
+}
+
+.drawerheader {
+    border-bottom-color: var(--line);
+}
+
+// ---------------------------------------------------------------------------
+// Moodle chrome (accent-driven via CSS variables)
+// ---------------------------------------------------------------------------
+.navbar.bg-primary,
+a.bg-primary {
+    background-color: var(--brand-orange) !important;
+    background-image: none !important;
+}
+
+.btn-primary {
+    background-color: var(--brand-orange) !important;
+    border-color: var(--brand-orange) !important;
+    background-image: none !important;
+
+    &:hover, &:focus {
+        background-color: var(--brand-orange-deep) !important;
+        border-color: var(--brand-orange-deep) !important;
+    }
+}
+
+#region-main .main-inner a:not(.btn):not(.dropdown-item):not(.nav-link):not(.page-link),
+.necta-dashboard a:not(.btn):not(.dropdown-item) {
+    color: var(--brand-orange);
+}
+
+#region-main .main-inner a:not(.btn):not(.dropdown-item):not(.nav-link):not(.page-link):hover,
+.necta-dashboard a:not(.btn):not(.dropdown-item):hover {
+    color: var(--brand-orange-deep);
+}
+
+.card, .block {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: none;
+}
+
+#region-main {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.progress-bar {
+    background-color: var(--brand-orange) !important;
+    background-image: none !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-orange) 22%, transparent);
+}
+
+#page-footer {
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.65);
+
+    a {
+        color: var(--brand-orange-soft);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Dashboard shell (Guide §5)
+// ---------------------------------------------------------------------------
+.necta-dashboard {
+    max-width: 1200px;
+}
+
+.necta-hero {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+
+    .hero-greeting {
+        font-family: var(--font-display);
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 4px;
+    }
+
+    .hero-meta {
+        font-size: 12px;
+        color: var(--ink-3);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
+.compliance-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.compliance-tile {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+
+    .tile-label {
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--ink-3);
+        margin-bottom: 6px;
+    }
+
+    .tile-value {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--ink);
+        font-family: var(--font-sans);
+    }
+
+    .tile-status {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 10px;
+        border-radius: 20px;
+
+        &.ok {
+            background: var(--green-soft);
+            color: var(--green);
+        }
+
+        &.warn {
+            background: var(--amber-soft);
+            color: var(--amber);
+        }
+
+        &.danger {
+            background: var(--red-soft);
+            color: var(--red);
+        }
+    }
+
+    &.amber .tile-value {
+        color: var(--amber);
+    }
+
+    &.green .tile-value {
+        color: var(--green);
+    }
+
+    &.red .tile-value {
+        color: var(--red);
+    }
+}
+
+.continue-card {
+    background: var(--brand-orange);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .cc-eyebrow {
+        font-size: 11px;
+        opacity: 0.75;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+    }
+
+    .cc-title {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 4px;
+    }
+
+    .cc-meta {
+        font-size: 12px;
+        opacity: 0.8;
+    }
+
+    .cc-progress {
+        margin-top: 10px;
+        height: 5px;
+        width: 180px;
+        max-width: 100%;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 20px;
+    }
+
+    .cc-progress-fill {
+        height: 5px;
+        background: #fff;
+        border-radius: 20px;
+    }
+
+    .cc-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff !important;
+        padding: 10px 22px;
+        border-radius: var(--radius-sm);
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none !important;
+        white-space: nowrap;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.32) !important;
+            color: #fff !important;
+        }
+    }
+}
+
+.necta-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.necta-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+
+    .card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 12px;
+        font-family: var(--font-sans) !important;
+    }
+}
+
+.necta-section {
+    margin-bottom: 20px;
+}
+
+.section-label {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3) !important;
+    margin-bottom: 10px !important;
+    font-family: var(--font-sans) !important;
+}
+
+.today-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .tr-time {
+        font-size: 11px;
+        color: var(--ink-3);
+        width: 85px;
+        flex-shrink: 0;
+    }
+
+    .tr-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .tr-title {
+        font-size: 13px;
+        color: var(--ink);
+        flex: 1;
+    }
+
+    .tr-loc {
+        font-size: 11px;
+        color: var(--ink-3);
+    }
+
+    .tr-badge {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 20px;
+
+        &.now {
+            background: var(--green-soft);
+            color: var(--green);
+        }
+
+        &.next {
+            background: var(--amber-soft);
+            color: var(--amber);
+        }
+
+        &.done {
+            background: var(--surface-3);
+            color: var(--ink-4);
+        }
+    }
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.course-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.15s;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(20, 17, 11, 0.08);
+    }
+
+    .course-card-accent {
+        height: 5px;
+    }
+
+    .course-card-body {
+        padding: 14px;
+    }
+
+    .cc-code {
+        font-size: 11px;
+        color: var(--ink-3);
+        margin-bottom: 2px;
+    }
+
+    .cc-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 6px;
+        line-height: 1.35;
+        font-family: var(--font-sans) !important;
+    }
+
+    .cc-trainer {
+        font-size: 11px;
+        color: var(--ink-3);
+        margin-bottom: 10px;
+    }
+
+    .cc-next {
+        font-size: 11px;
+        color: var(--ink-3);
+        margin-top: 6px;
+    }
+}
+
+.progress-bar-necta {
+    height: 5px;
+    background: var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 4px;
+
+    .progress-bar-fill {
+        height: 100%;
+        border-radius: 20px;
+        background: var(--brand-orange);
+        transition: width 0.3s ease;
+    }
+}
+
+.course-area-civ .progress-bar-fill {
+    background: var(--accent-civ);
+}
+
+.course-area-it .progress-bar-fill {
+    background: var(--accent-it);
+}
+
+.course-area-pm .progress-bar-fill {
+    background: var(--accent-pm);
+}
+
+.assessment-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .ar-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .ar-title {
+        font-size: 13px;
+        color: var(--ink);
+        flex: 1;
+    }
+
+    .ar-due {
+        font-size: 11px;
+        color: var(--ink-3);
+    }
+}
+
+.status-pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    color: var(--ink-2);
+
+    &.competent,
+    &.submitted {
+        background: var(--green-soft);
+        color: var(--green);
+        border-color: transparent;
+    }
+
+    &.not-yet-competent {
+        background: var(--amber-soft);
+        color: var(--amber);
+        border-color: transparent;
+    }
+
+    &.overdue,
+    &.today {
+        background: var(--red-soft);
+        color: var(--red);
+        border-color: transparent;
+    }
+
+    &.draft {
+        background: var(--surface-2);
+        color: var(--ink-3);
+    }
+}
+
+.announcement-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+
+    .ac-author {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink);
+    }
+
+    .ac-role {
+        font-size: 11px;
+        color: var(--ink-3);
+        margin-bottom: 8px;
+    }
+
+    .ac-subject {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 4px;
+    }
+
+    .ac-body {
+        font-size: 13px;
+        color: var(--ink-2);
+        line-height: 1.5;
+    }
+
+    .ac-date {
+        font-size: 11px;
+        color: var(--ink-3);
+        margin-top: 8px;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Assign submission — file upload zone (Design Guide §6)
+// ---------------------------------------------------------------------------
+.path-mod-assign {
+    .filemanager .fp-content,
+    .fm-file-list,
+    .filepicker .fp-content {
+        border: 1px dashed var(--line-strong);
+        border-radius: var(--radius);
+        background: var(--surface-2);
+    }
+
+    .filemanager-toolbar .fp-btn,
+    .fp-toolbar .fp-btn {
+        border-radius: var(--radius-sm);
+    }
+
+    .fp-upload-btn {
+        border-color: var(--brand-orange) !important;
+        color: var(--brand-orange) !important;
+    }
+}
+
+.crit-row {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    .crit-check {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--line-strong);
+        border-radius: 4px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        cursor: pointer;
+
+        &.checked {
+            background: var(--green);
+            border-color: var(--green);
+        }
+    }
+
+    .crit-title {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+    }
+
+    .crit-desc {
+        font-size: 12px;
+        color: var(--ink-3);
+        margin-top: 3px;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Course area body / card hooks (Guide §1)
+// ---------------------------------------------------------------------------
+.course-area-civ .course-card-accent {
+    background: var(--accent-civ);
+}
+
+.course-area-it .course-card-accent {
+    background: var(--accent-it);
+}
+
+.course-area-pm .course-card-accent {
+    background: var(--accent-pm);
+}
+
+// ---------------------------------------------------------------------------
+// Density (Guide §3)
+// ---------------------------------------------------------------------------
+body.density-compact {
+    .compliance-tile,
+    .necta-card {
+        padding: 10px 12px;
+    }
+
+    .course-card .course-card-body {
+        padding: 10px 12px;
+    }
+
+    .today-row,
+    .assessment-row {
+        padding: 6px 0;
+    }
+
+    .necta-hero {
+        padding: 16px 18px;
+    }
+}
+
+body.density-comfy {
+    .compliance-tile,
+    .necta-card {
+        padding: 22px;
+    }
+
+    .course-card .course-card-body {
+        padding: 20px;
+    }
+
+    .today-row,
+    .assessment-row {
+        padding: 12px 0;
+    }
+
+    .necta-hero {
+        padding: 28px 32px;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// AI Study Helper FAB — stub (Guide §5.8); rendered from drawers when admin enables it
+// ---------------------------------------------------------------------------
+.necta-ai-fab {
+    display: flex;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1030;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: none;
+    background: var(--brand-orange);
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.85;
+}

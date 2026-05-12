@@ -1,0 +1,18 @@
+// NECTA Learn — Bootstrap / Boost variable overrides (Design Guide §2).
+// $primary, $link-color, $link-hover-color are injected before this file in lib.php.
+
+@import 'tokens';
+
+$body-bg: $bg;
+$body-color: $ink;
+$headings-color: $ink;
+$border-color: $line;
+$font-family-sans-serif: $font-sans;
+$font-family-base: $font-sans;
+$headings-font-family: $font-display;
+$headings-font-weight: 500;
+$border-radius: $radius-sm;
+$border-radius-lg: $radius;
+$input-border-radius: $radius-sm;
+$btn-border-radius: $radius-sm;
+$card-border-radius: $radius;

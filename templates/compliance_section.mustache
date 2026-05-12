@@ -1,0 +1,33 @@
+{{!
+    NECTA compliance row (Design Guide §5.2) — used by block_necta_compliance.
+}}
+<section class="necta-section" aria-labelledby="compliance-heading">
+    <h2 id="compliance-heading" class="section-label">{{#str}}compliance_overview, theme_necta{{/str}}</h2>
+    <div class="compliance-row">
+
+        <div class="compliance-tile {{attendance_status}}">
+            <div class="tile-label">{{#str}}tile_attendance, theme_necta{{/str}}</div>
+            <div class="tile-value">{{attendance_value}}</div>
+            <div class="tile-status {{attendance_status}}">{{attendance_label}}</div>
+        </div>
+
+        <div class="compliance-tile">
+            <div class="tile-label">{{#str}}tile_progress, theme_necta{{/str}}</div>
+            <div class="tile-value">{{progress_value}}</div>
+            <div class="tile-status ok">{{#str}}status_on_track, theme_necta{{/str}}</div>
+        </div>
+
+        <div class="compliance-tile {{visa_status}}">
+            <div class="tile-label">{{#str}}tile_visa_hours, theme_necta{{/str}}</div>
+            <div class="tile-value">{{visa_used}} / {{visa_cap}}</div>
+            <div class="tile-status {{visa_status}}">{{visa_label}}</div>
+        </div>
+
+        <div class="compliance-tile {{cricos_tile_status}}">
+            <div class="tile-label">{{#str}}tile_cricos_status, theme_necta{{/str}}</div>
+            <div class="tile-value small">{{cricos_status}}</div>
+            <div class="tile-status {{cricos_tile_status}}">{{#str}}status_compliant, theme_necta{{/str}}</div>
+        </div>
+
+    </div>
+</section>

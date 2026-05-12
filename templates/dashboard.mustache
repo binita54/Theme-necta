@@ -1,0 +1,125 @@
+{{!
+    NECTA Learn — Dashboard body (Design Guide §5) without compliance row.
+    Add block “NECTA compliance overview” above this block on /my.
+}}
+<div class="necta-dashboard">
+
+    {{! ── Hero greeting ── }}
+    <div class="necta-hero">
+        <div class="hero-greeting">{{greeting}}</div>
+        <div class="hero-meta">
+            <span><i class="fa fa-id-badge" aria-hidden="true"></i> {{student_id}}</span>
+            <span><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{cohort_label}}</span>
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i> {{campus}}</span>
+        </div>
+    </div>
+
+    {{! ── Continue Learning card ── }}
+    {{#continue_card}}
+    <div class="continue-card">
+        <div class="continue-left">
+            <div class="cc-eyebrow">{{#str}}continue_learning, theme_necta{{/str}}</div>
+            <div class="cc-title">{{lesson_title}}</div>
+            <div class="cc-meta">
+                <span>{{unit_code}}</span>
+                <span>· {{#str}}est_duration, theme_necta{{/str}} {{duration}} min</span>
+            </div>
+            <div class="cc-progress">
+                <div class="cc-progress-fill"
+                     style="width:{{unit_progress}}%"
+                     role="progressbar"
+                     aria-valuenow="{{unit_progress}}"
+                     aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
+            </div>
+        </div>
+        <a href="{{activity_url}}" class="cc-btn">
+            {{#str}}resume_lesson_go, theme_necta{{/str}}
+        </a>
+    </div>
+    {{/continue_card}}
+
+    {{! ── Two column row: Schedule + Assessments ── }}
+    <div class="necta-two-col">
+
+        {{! ── Today's schedule ── }}
+        <section class="necta-card" aria-labelledby="schedule-heading">
+            <h2 id="schedule-heading" class="card-title">{{#str}}todays_schedule, theme_necta{{/str}}</h2>
+            <div data-region="necta-schedule" data-userid="{{userid}}">
+            {{#schedule}}
+            <div class="today-row">
+                <div class="tr-time">{{timestart}}–{{timeend}}</div>
+                <div class="tr-dot" style="background:var(--accent-{{course_area}})"></div>
+                <div class="tr-title">{{title}}</div>
+                <div class="tr-loc">{{location}}</div>
+                <span class="tr-badge {{status}}">{{#str}}status_{{status}}, theme_necta{{/str}}</span>
+            </div>
+            {{/schedule}}
+            {{^schedule}}
+            <p class="text-muted small mb-0">{{#str}}schedule_empty, theme_necta{{/str}}</p>
+            {{/schedule}}
+            </div>
+        </section>
+
+        {{! ── Assessments ── }}
+        <section class="necta-card" aria-labelledby="assessments-heading">
+            <h2 id="assessments-heading" class="card-title">{{#str}}assessments_due, theme_necta{{/str}}</h2>
+            {{#assessments}}
+            <div class="assessment-row">
+                <div class="ar-dot" style="background:var(--accent-{{course_area}})"></div>
+                <div class="ar-title">{{title}}</div>
+                <div class="ar-due">{{due_date}}</div>
+                <span class="status-pill {{status}}">{{#str}}pill_{{status}}, theme_necta{{/str}}</span>
+            </div>
+            {{/assessments}}
+            {{^assessments}}
+            <p class="text-muted small mb-0">{{#str}}assessments_empty, theme_necta{{/str}}</p>
+            {{/assessments}}
+        </section>
+
+    </div>
+
+    {{! ── Course cards ── }}
+    <section class="necta-section" aria-labelledby="courses-heading">
+        <h2 id="courses-heading" class="section-label">{{#str}}my_courses, theme_necta{{/str}}</h2>
+        <div class="course-grid">
+            {{#courses}}
+            <div class="course-card course-area-{{course_area}}">
+                <div class="course-card-accent" style="background:var(--accent-{{course_area}})"></div>
+                <div class="course-card-body">
+                    <div class="cc-code">{{course_code}}</div>
+                    <div class="cc-name">{{fullname}}</div>
+                    <div class="cc-trainer">{{#str}}label_trainer, theme_necta, {{trainer_name}}{{/str}}</div>
+                    <div class="progress-bar-necta"
+                         role="progressbar"
+                         aria-valuenow="{{progress}}"
+                         aria-valuemin="0"
+                         aria-valuemax="100">
+                        <div class="progress-bar-fill" style="width:{{progress}}%"></div>
+                    </div>
+                    <div class="prog-label">{{#str}}progress_percent, theme_necta, {{progress}}{{/str}}</div>
+                    <div class="cc-next">{{#str}}next_session_label, theme_necta, {{next_session}}{{/str}}</div>
+                </div>
+            </div>
+            {{/courses}}
+        </div>
+    </section>
+
+    {{! ── Announcements ── }}
+    {{#announcements}}
+    <section class="necta-section" aria-labelledby="announcements-heading">
+        <h2 id="announcements-heading" class="section-label">{{#str}}announcements, theme_necta{{/str}}</h2>
+        {{#items}}
+        <div class="announcement-card">
+            <div class="ac-author">{{author_name}}</div>
+            <div class="ac-role">{{author_role}}</div>
+            <div class="ac-subject">{{subject}}</div>
+            <div class="ac-body">{{body_excerpt}}</div>
+            <div class="ac-date">{{post_date}}</div>
+        </div>
+        {{/items}}
+    </section>
+    {{/announcements}}
+
+</div>

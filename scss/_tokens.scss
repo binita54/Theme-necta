@@ -1,0 +1,44 @@
+// NECTA Learn — SCSS variables only (Design Guide §2).
+// Runtime :root custom properties are defined in post.scss; accent triplet is overridden last in PHP.
+
+// --- Brand colours ---
+$necta-orange: #E25C18;
+$necta-orange-deep: #B84210;
+$necta-orange-soft: #FFF1E8;
+
+// --- Course area accents ---
+$accent-civ: #E25C18;
+$accent-it: #3D6BE0;
+$accent-pm: #1F8F6B;
+
+// --- Surfaces ---
+$bg: #F6F4EF;
+$surface: #FFFFFF;
+$surface-2: #FBF9F4;
+$surface-3: #F1EEE6;
+$line: rgba(20, 17, 11, 0.08);
+$line-strong: rgba(20, 17, 11, 0.14);
+
+// --- Ink (text) ---
+$ink: #1A1712;
+$ink-2: #4A4538;
+$ink-3: #7A7363;
+$ink-4: #A6A091;
+
+// --- Status colours ---
+$green: #1F8F6B;
+$green-soft: #E6F4EE;
+$amber: #C97A0E;
+$amber-soft: #FBF1DF;
+$red: #C83C2A;
+$red-soft: #FBEAE6;
+
+// --- Typography ---
+$font-sans: "Inter Tight", system-ui, sans-serif;
+$font-display: "Fraunces", Georgia, serif;
+$font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+// --- Spacing & radius ---
+$radius: 14px;
+$radius-sm: 10px;
+$radius-lg: 22px;
