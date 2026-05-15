@@ -10,6 +10,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'theme_necta';
 $plugin->version   = 2026051203;
-$plugin->requires  = 2025041400; // Moodle 5.0+
+$plugin->requires  = 2022041900;
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->release   = '1.1.3';
