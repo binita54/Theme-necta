@@ -896,7 +896,25 @@ body.density-comfy {
 
 .main-inner{
     max-width: 100% !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 #page-footer{
     max-width: 100% !important;
+}
+.primary-navigation
+.nav-link.active {
+    background-color: var(--brand-orange) !important;
+}
+
+.nav-link:hover {
+    background-color: var(--brand-orange) !important;
+}
+.secondary-navigation .nav-link.active {
+    background-color: var(--brand-orange) !important;
+    color: #fff !important;
+}
+
+.secondary-navigation .nav-link:hover {
+    background-color: var(--brand-orange) !important;
+    color: #fff !important;
 }
