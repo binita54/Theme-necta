@@ -942,25 +942,150 @@ new code
     background-color: #E6EAF7;
     border: #E6EAF7 solid 1px;
 }
-
-.activity-item{
-    border: none !important;
-}
-
-// Activity item boxes (course page)
+// ---------------------------------------------------------------------------
+// Course page — activity rows as clean table-like list
+// ---------------------------------------------------------------------------
+// Activity items
 .activity-item {
-    border: 1px solid var(--line) !important;
-    border-radius: 0 !important;
-    background: var(--surface);
-    margin: 0 !important;
-    padding: 12px 16px;
+    display: flex !important;
+    align-items: center !important; // Changed from flex-start to center
+    gap: 16px !important; // Increased gap
+    background: var(--surface) !important;
+    border: 1px solid var(--line) !important; // Added border around each item
+    border-radius: var(--radius) !important; // Added border-radius
+    margin-bottom: 8px !important; // Added margin between items
+    padding: 12px 16px !important; // Adjusted padding
+    flex-wrap: nowrap !important; // Changed from wrap to nowrap
+
+    &:last-child {
+        margin-bottom: 0 !important;
+        border-bottom: 1px solid var(--line) !important; // Keep border on last child
+    }
+
+    &:hover {
+        background: var(--surface-2) !important;
+        transform: translateX(2px); // Optional: subtle hover effect
+        transition: all 0.2s ease;
+    }
 }
 
-// collapse double borders between items
+// Remove the previous border-bottom approach
 .activity-item + .activity-item {
-    border-top: none !important;
+    border-top: 1px solid var(--line) !important; // Add top border instead
+    margin-top: -1px !important; // Prevent double borders
 }
 
+.activity-item .activityiconcontainer {
+    box-shadow: none !important;
+    flex-shrink: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.activity-item .activityname {
+    flex: 1 !important;
+    
+    .instancename {
+        font-size: 15px !important; // Slightly larger
+        font-weight: 500 !important;
+
+        a {
+            color: var(--ink) !important;
+            text-decoration: none !important;
+
+            &:hover {
+                color: var(--brand-orange) !important;
+                text-decoration: underline !important;
+            }
+        }
+    }
+}
+
+.activity-item .contentafterlink {
+    font-size: 12px !important;
+    color: var(--ink-3) !important;
+    margin-left: auto !important; // Push to the right
+    white-space: nowrap !important; // Prevent wrapping
+}
+
+// Section wrapper - make it look like the second screenshot
+.section {
+    border: 1px solid var(--line) !important;
+    border-radius: none !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important; // Increased margin
+    background: var(--surface) !important;
+    
+    // Style for section header
+    .sectionname {
+        padding: 12px 16px !important;
+        background: var(--surface-2) !important;
+        border-bottom: 1px solid var(--line) !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+    }
+    
+    // Content area
+    .section-content {
+        padding: 8px !important;
+    }
+}
+
+// Style for the announcements/quiz items specifically
+.activity-item[data-activityname="Announcements"],
+.activity-item[data-activityname="quiz"] {
+    .activityiconcontainer {
+        // Style for specific activity types if needed
+    }
+}
+
+// Make sure the wrapper has proper spacing
+.course-content .section-modchooser {
+    margin-top: 16px !important;
+}
+
+// Style for the date/time information (like "Opened: Monday, 18 May 2026...")
+.activity-item .activitydates,
+.activity-item .availabilityinfo {
+    font-size: 11px !important;
+    color: var(--ink-2) !important;
+    margin-left: 48px !important; // Align with activity name
+    margin-top: 4px !important;
+    display: block !important;
+    width: 100% !important;
+}
+// Force proper layout for course content
+.course-content {
+    .section {
+        .activity {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+}
+
+// Fix for the "Summarized course" and "H-P Java" items
+.summarized-course,
+.course-summary {
+    padding: 12px 16px !important;
+    background: var(--surface-2) !important;
+    border-radius: var(--radius) !important;
+    margin-bottom: 16px !important;
+}
+
+// Ensure proper spacing in the main content area
+#page-content {
+    .region-content {
+        padding: 20px !important;
+        
+        > div {
+            margin-bottom: 24px !important;
+        }
+    }
+}
 // ---------------------------------------------------------------------------
 // Added code in my courses page
 // ---------------------------------------------------------------------------
@@ -1041,7 +1166,6 @@ new code
     border-radius: 5px !important;
     margin-top: 25px !important;
 }
-
 // ---------------------------------------------------------------------------
 // Frontpage — Available courses card grid
 // ---------------------------------------------------------------------------
@@ -1078,18 +1202,23 @@ new code
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
     transition: box-shadow 0.15s;
 
     &:hover {
         box-shadow: 0 4px 16px rgba(20, 17, 11, 0.08) !important;
     }
 
-    // Generated thumbnail block at the top of each card
+    // Decorative thumbnail for cards without images
     &::before {
         content: '';
         display: block;
         width: 100%;
         height: 150px;
+        flex-shrink: 0;
+        order: 0;
     }
 
     &.odd::before {
@@ -1106,10 +1235,25 @@ new code
             radial-gradient(circle at 72% 65%, rgba(255,255,255,.18) 48px, transparent 48px),
             radial-gradient(circle at 50% 85%, rgba(255,255,255,.18) 65px, transparent 65px);
     }
+
+    // Hide ::before when real image exists
+    &:has(.courseimage img)::before {
+        content: none !important;
+        display: none !important;
+    }
+
+    // Reserve space at top for absolute image
+    &:has(.courseimage img) {
+        padding-top: 150px !important;
+    }
 }
 
+// .info — title and category — order 1
 .courses.frontpage-course-list-all .coursebox .info {
-    padding: 14px 16px 16px !important;
+    padding: 14px 16px 4px !important;
+    order: 1 !important;
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 .courses.frontpage-course-list-all .coursebox .info .coursename {
@@ -1132,7 +1276,7 @@ new code
     display: none !important;
 }
 
-// Category badge — generated via ::after on .info
+// Category badge
 .courses.frontpage-course-list-all .coursebox .info::after {
     content: 'Category 1';
     display: inline-block;
@@ -1145,15 +1289,52 @@ new code
     margin-bottom: 10px;
 }
 
+// .content — order 2 — teachers sit below title
 .courses.frontpage-course-list-all .coursebox .content {
+    padding: 0 !important;
+    position: static !important;
+    order: 2 !important;
+}
+
+.courses.frontpage-course-list-all .coursebox .content .d-flex {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+// Course image — absolute, fills top of card
+.courses.frontpage-course-list-all .coursebox .content .d-flex .courseimage {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 150px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 1 !important;
+
+    img {
+        width: 100% !important;
+        min-width: 100% !important;
+        height: 150px !important;
+        min-height: 150px !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+        max-width: 100% !important;
+    }
+}
+
+// Teachers wrapper
+.courses.frontpage-course-list-all .coursebox .content .d-flex .flex-grow-1 {
+    display: block !important;
     padding: 0 16px 16px !important;
+    width: 100% !important;
 }
 
-// Hide the bold "Teacher:" label, keep just the linked name
-.courses.frontpage-course-list-all .coursebox .content .teachers li .font-weight-bold {
-    display: none !important;
-}
-
+// Teachers list
 .courses.frontpage-course-list-all .coursebox .content .teachers {
     list-style: none !important;
     padding: 0 !important;
@@ -1163,6 +1344,14 @@ new code
         font-size: 13px !important;
         color: var(--ink-3) !important;
         margin-bottom: 2px !important;
+
+        .font-weight-bold {
+            display: none !important;
+        }
+
+        img {
+            display: none !important;
+        }
     }
 
     a {
@@ -1173,4 +1362,19 @@ new code
             color: var(--brand-orange-deep) !important;
         }
     }
+}
+/* hover color change */
+[data-region="filter"] .dropdown .btn:hover,
+[data-region="filter"] .dropdown-toggle:hover,
+[data-region="filter"] .flex-grow-1 input:hover,
+[data-region="filter"] .flex-grow-1 .form-control:hover,
+[data-region="filter"] .btn-group .btn:hover {
+    background-color: var(--brand-orange) !important;      
+    color: #f5f3ed  !important;
+}
+
+// hover color for search bar
+[data-region="filter"] .flex-grow-1 input:hover::placeholder,
+[data-region="filter"] .flex-grow-1 .form-control:hover::placeholder {
+    color: #f5f3ed !important;
 }
