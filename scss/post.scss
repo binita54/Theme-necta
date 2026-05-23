@@ -47,6 +47,22 @@ body {
     font-family: var(--font-sans);
 }
 
+.rounded,
+.rounded-sm,
+.rounded-lg,
+.rounded-circle,
+.btn,
+.card,
+.modal-content,
+.dropdown-menu,
+.popover,
+.form-control,
+.custom-select,
+.badge,
+.alert {
+    border-radius: 0 !important;
+}
+
 // ---------------------------------------------------------------------------
 // Login page — split brand + card (Design Guide §1)
 // ---------------------------------------------------------------------------
@@ -365,7 +381,7 @@ a.bg-primary {
         font-size: 11px;
         font-weight: 600;
         padding: 2px 10px;
-        border-radius: 20px;
+        border-radius: 0;
 
         &.ok {
             background: var(--green-soft);
@@ -434,13 +450,13 @@ a.bg-primary {
         width: 180px;
         max-width: 100%;
         background: rgba(255, 255, 255, 0.25);
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .cc-progress-fill {
         height: 5px;
         background: #fff;
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .cc-btn {
@@ -522,7 +538,7 @@ a.bg-primary {
     .tr-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
+        border-radius: 0;
         flex-shrink: 0;
     }
 
@@ -541,7 +557,7 @@ a.bg-primary {
         font-size: 10px;
         font-weight: 600;
         padding: 2px 8px;
-        border-radius: 20px;
+        border-radius: 0;
 
         &.now {
             background: var(--green-soft);
@@ -624,13 +640,13 @@ a.bg-primary {
 .progress-bar-necta {
     height: 5px;
     background: var(--line);
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
     margin-bottom: 4px;
 
     .progress-bar-fill {
         height: 100%;
-        border-radius: 20px;
+        border-radius: 0;
         background: var(--brand-orange);
         transition: width 0.3s ease;
     }
@@ -662,7 +678,7 @@ a.bg-primary {
     .ar-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
+        border-radius: 0;
         flex-shrink: 0;
     }
 
@@ -683,7 +699,7 @@ a.bg-primary {
     font-size: 10px;
     font-weight: 600;
     padding: 2px 10px;
-    border-radius: 20px;
+    border-radius: 0;
     border: 1px solid var(--line);
     background: var(--surface-2);
     color: var(--ink-2);
@@ -790,7 +806,7 @@ a.bg-primary {
         width: 18px;
         height: 18px;
         border: 2px solid var(--line-strong);
-        border-radius: 4px;
+        border-radius: 0;
         flex-shrink: 0;
         margin-top: 2px;
         cursor: pointer;
@@ -883,7 +899,7 @@ body.density-comfy {
     z-index: 1030;
     width: 56px;
     height: 56px;
-    border-radius: 50%;
+    border-radius: 0;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -1014,7 +1030,7 @@ new code
 // Section wrapper - make it look like the second screenshot
 .section {
     border: 1px solid var(--line) !important;
-    border-radius: none !important;
+    border-radius: 0 !important;
     overflow: hidden !important;
     margin-bottom: 20px !important; // Increased margin
     background: var(--surface) !important;
@@ -1118,7 +1134,7 @@ new code
 [data-region="filter"] .btn-group .btn {
     background-color: #f5f3ed !important;      
     border: 1px solid #fff !important;      
-    border-radius: 10px !important;             
+    border-radius: 0 !important;             
     box-shadow: none !important;
     transition: none !important;
 }
@@ -1146,7 +1162,7 @@ new code
     .dropdown-toggle {
         background-color: rgba(255, 255, 255, 0.25) !important;
         border: none !important;
-        border-radius: 50% !important;
+        border-radius: 0 !important;
         color: #fff !important;
         width: 32px !important;
         height: 32px !important;
@@ -1163,7 +1179,7 @@ new code
 // category border
 .categoryname{
     background-color: #E4E4E4 !important;
-    border-radius: 5px !important;
+    border-radius: 0 !important;
     margin-top: 25px !important;
 }
 // ---------------------------------------------------------------------------
@@ -1284,7 +1300,7 @@ new code
     color: var(--ink-3);
     background: var(--surface-2);
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 0;
     padding: 3px 10px;
     margin-bottom: 10px;
 }
@@ -1378,3 +1394,467 @@ new code
 [data-region="filter"] .flex-grow-1 .form-control:hover::placeholder {
     color: #f5f3ed !important;
 }
+
+/*
+ * NECTA Dashboard Layout Override CSS  v5
+ *
+ * Dashboard  → body#page-my-index (class contains "path-my", NOT "page-mycourses")
+ * My Courses → body#page-my-index (class contains "page-mycourses")
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   1. GREETING — Dashboard only
+   ═══════════════════════════════════════════════════════════════════════ */
+
+body#page-my-index:not(.page-mycourses) #page-header .page-header-headings h1.h2 {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden;
+}
+
+body#page-my-index:not(.page-mycourses) #page-header .page-header-headings h1.h2::before {
+    //content: "Hi, Admin! 👋";
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a2e;
+}
+
+/* Ensure My Courses heading is untouched */
+body#page-my-index.page-mycourses #page-header .page-header-headings h1.h2::before {
+    content: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. DASHBOARD — strip region-main card so layout is clean
+   ═══════════════════════════════════════════════════════════════════════ */
+
+body#page-my-index:not(.page-mycourses) #page-content #region-main {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   3. DASHBOARD — hide skip-link anchors and sb-* spans from layout
+      These are non-block siblings that break grid placement
+   ═══════════════════════════════════════════════════════════════════════ */
+
+body#page-my-index:not(.page-mycourses) aside#block-region-content > a,
+body#page-my-index:not(.page-mycourses) aside#block-region-content > span,
+body#page-my-index:not(.page-mycourses) aside#block-region-content > h2 {
+    display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   4. DASHBOARD — Two-column grid
+      Only direct section children are grid items now
+   ═══════════════════════════════════════════════════════════════════════ */
+
+body#page-my-index:not(.page-mycourses) aside#block-region-content {
+    display: grid !important;
+    grid-template-columns: 55fr 45fr !important;
+    column-gap: 1.25rem !important;
+    row-gap: 0.75rem !important;
+    align-items: start !important;
+}
+
+/* Timeline → left col, row 1 */
+body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst14 {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+}
+
+/* NECTA Compliance → left col, row 2 */
+body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst17 {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+}
+
+/* Calendar → right col, spans rows 1 and 2 */
+body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst15 {
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   5. DASHBOARD — Block card polish
+   ═══════════════════════════════════════════════════════════════════════ */
+
+body#page-my-index:not(.page-mycourses) aside#block-region-content section.block {
+    border-radius: 0 !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+    background: #ffffff !important;
+    margin-bottom: 0 !important;
+}
+
+body#page-my-index:not(.page-mycourses) aside#block-region-content section.block .card-body {
+    padding: 1.25rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   6. DASHBOARD — Timeline & Calendar accents
+   ═══════════════════════════════════════════════════════════════════════ */
+
+body#page-my-index:not(.page-mycourses) section#inst14 .event-name a {
+    color: #e05c2a !important;
+    font-weight: 600;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .btn-primary[data-action="new-event-button"] {
+    background-color: #e05c2a !important;
+    border-color: #e05c2a !important;
+    color: #fff !important;
+    border-radius: 0;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .btn-primary[data-action="new-event-button"]:hover {
+    background-color: #c44e22 !important;
+    border-color: #c44e22 !important;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .arrow_link {
+    color: #e05c2a !important;
+    font-weight: 600;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .today .day-number-circle {
+    background-color: #e05c2a !important;
+    border-radius: 0;
+    width: 28px;
+    height: 28px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .today .day-number {
+    color: #fff !important;
+    font-weight: 700;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .calendar_event_course {
+    background-color: #e05c2a !important;
+    border-color: #e05c2a !important;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 [data-region="day-content"] a {
+    color: #e05c2a !important;
+    font-size: 0.78rem;
+}
+
+body#page-my-index:not(.page-mycourses) section#inst15 .footer a {
+    color: #e05c2a !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   7. MY COURSES — full-width block + 3-column card grid
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Reset any grid from dashboard leaking in */
+body#page-my-index.page-mycourses aside#block-region-content {
+    display: block !important;
+}
+
+body#page-my-index.page-mycourses aside#block-region-content section {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: unset !important;
+    grid-row: unset !important;
+}
+
+/* 3 cards per row on desktop */
+body#page-my-index.page-mycourses .card-deck.dashboard-card-deck {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    /* override Moodle's flex/margin defaults */
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+body#page-my-index.page-mycourses .card-deck.dashboard-card-deck .dashboard-card {
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+@media (max-width: 991px) {
+    body#page-my-index.page-mycourses .card-deck.dashboard-card-deck {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 575px) {
+    body#page-my-index.page-mycourses .card-deck.dashboard-card-deck {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   8. RESPONSIVE — Dashboard collapses to single column below 900px
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    body#page-my-index:not(.page-mycourses) aside#block-region-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst14,
+    body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst17,
+    body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst15 {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Dashboard cleanup: dashboard/compliance left, calendar right.
+// ---------------------------------------------------------------------------
+$necta-dashboard-page: 'body#page-my-index:not(.page-mycourses)';
+
+#{$necta-dashboard-page} {
+    #page-content #region-main {
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    aside#block-region-content {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr) !important;
+        gap: 18px !important;
+        align-items: start !important;
+    }
+
+    aside#block-region-content > a,
+    aside#block-region-content > span,
+    aside#block-region-content > h2 {
+        display: none !important;
+    }
+
+    aside#block-region-content section.block {
+        min-width: 0;
+        margin: 0 !important;
+        background: var(--surface) !important;
+        border: 1px solid var(--line) !important;
+        border-radius: var(--radius) !important;
+        box-shadow: 0 8px 24px rgba(20, 17, 11, 0.045) !important;
+        overflow: hidden;
+    }
+
+    aside#block-region-content section.block .card-body {
+        padding: 18px !important;
+    }
+
+    aside#block-region-content section.block .card-title {
+        font-family: var(--font-sans) !important;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.06em;
+        line-height: 1.25;
+        text-transform: uppercase;
+        color: var(--ink-3) !important;
+        margin-bottom: 14px !important;
+    }
+
+    aside#block-region-content section.block_necta_dashboard,
+    aside#block-region-content section.block_timeline,
+    aside#block-region-content section#inst14 {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    aside#block-region-content section.block_necta_compliance,
+    aside#block-region-content section#inst17 {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+
+    aside#block-region-content section.block_calendar_month,
+    aside#block-region-content section.block_calendar_upcoming,
+    aside#block-region-content section#inst15 {
+        grid-column: 2 !important;
+        grid-row: 1 / span 2 !important;
+        position: sticky;
+        top: 76px;
+    }
+
+    .block_necta_dashboard .card-title,
+    .block_necta_compliance .card-title {
+        display: none;
+    }
+
+    .block_necta_dashboard .necta-dashboard {
+        max-width: none;
+    }
+
+    .block_necta_dashboard .necta-hero {
+        padding: 20px 22px;
+        margin-bottom: 16px;
+    }
+
+    .block_necta_dashboard .continue-card,
+    .block_necta_dashboard .necta-two-col,
+    .block_necta_dashboard .necta-section {
+        margin-bottom: 16px;
+    }
+
+    .block_necta_dashboard .course-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .block_necta_compliance .necta-section {
+        margin-bottom: 0;
+    }
+
+    .block_necta_compliance .compliance-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 0;
+    }
+
+    .block_necta_compliance .compliance-tile {
+        background: var(--surface-2);
+        padding: 14px;
+    }
+
+    .block_necta_compliance .tile-value {
+        font-size: 22px;
+        line-height: 1.15;
+    }
+
+    .block_necta_compliance .tile-value.small {
+        font-size: 16px;
+    }
+
+    .block_timeline .event-name a,
+    section#inst14 .event-name a,
+    .block_calendar_month .arrow_link,
+    .block_calendar_month .footer a,
+    .block_calendar_upcoming .footer a,
+    section#inst15 .arrow_link,
+    section#inst15 .footer a {
+        color: var(--brand-orange) !important;
+        font-weight: 600;
+    }
+
+    .block_calendar_month .maincalendar,
+    .block_calendar_month .minicalendar,
+    .block_calendar_upcoming .content {
+        width: 100%;
+    }
+
+    .block_calendar_month table.minicalendar {
+        table-layout: fixed;
+        margin-bottom: 12px;
+    }
+
+    .block_calendar_month table.minicalendar th,
+    .block_calendar_month table.minicalendar td {
+        padding: 5px 3px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .block_calendar_month .calendar-controls {
+        margin-bottom: 12px;
+    }
+
+    .block_calendar_month .calendar-controls .current {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--ink);
+    }
+
+    .block_calendar_month .today .day-number-circle,
+    section#inst15 .today .day-number-circle {
+        width: 28px;
+        height: 28px;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--brand-orange) !important;
+        border-radius: var(--radius-sm);
+    }
+
+    .block_calendar_month .today .day-number,
+    section#inst15 .today .day-number {
+        color: #fff !important;
+        font-weight: 700;
+    }
+
+    .block_calendar_month .calendar_event_course,
+    section#inst15 .calendar_event_course {
+        background-color: var(--brand-orange) !important;
+        border-color: var(--brand-orange) !important;
+    }
+
+    .block_calendar_month [data-region="day-content"] a,
+    section#inst15 [data-region="day-content"] a {
+        color: var(--brand-orange) !important;
+        font-size: 0.78rem;
+    }
+
+    .block_calendar_month .btn-primary[data-action="new-event-button"],
+    section#inst15 .btn-primary[data-action="new-event-button"] {
+        background-color: var(--brand-orange) !important;
+        border-color: var(--brand-orange) !important;
+        color: #fff !important;
+        border-radius: var(--radius-sm);
+    }
+
+    .block_calendar_month .btn-primary[data-action="new-event-button"]:hover,
+    section#inst15 .btn-primary[data-action="new-event-button"]:hover {
+        background-color: var(--brand-orange-deep) !important;
+        border-color: var(--brand-orange-deep) !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    #{$necta-dashboard-page} .block_necta_dashboard .course-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    #{$necta-dashboard-page} {
+        aside#block-region-content {
+            grid-template-columns: 1fr !important;
+        }
+
+        aside#block-region-content section.block_necta_dashboard,
+        aside#block-region-content section.block_timeline,
+        aside#block-region-content section.block_necta_compliance,
+        aside#block-region-content section.block_calendar_month,
+        aside#block-region-content section.block_calendar_upcoming,
+        aside#block-region-content section#inst14,
+        aside#block-region-content section#inst15,
+        aside#block-region-content section#inst17 {
+            grid-column: 1 !important;
+            grid-row: auto !important;
+            position: static;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    #{$necta-dashboard-page} {
+        aside#block-region-content section.block .card-body {
+            padding: 14px !important;
+        }
+
+        .block_necta_dashboard .necta-two-col,
+        .block_necta_dashboard .course-grid,
+        .block_necta_compliance .compliance-row {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
