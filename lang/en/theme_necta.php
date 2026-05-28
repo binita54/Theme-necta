@@ -56,7 +56,7 @@ $string['assessments_empty']   = 'No assessments due.';
 $string['label_trainer']       = 'Trainer: {$a}';
 $string['progress_percent']   = '{$a}% complete';
 $string['next_session_label'] = 'Next: {$a}';
-$string['resume_lesson_go']  = 'Resume lesson →';
+$string['resume_lesson_go']  = 'Resume activity →';
 
 // Compliance tile labels
 $string['tile_attendance']   = 'Attendance';
@@ -90,4 +90,3 @@ $string['footer_legal'] = 'Xavier Intl. College Trading as NECTA · CRICOS Provi
 
 // Accessibility
 $string['login_tagline'] = 'Sign in to continue your training and assessments.';
-
