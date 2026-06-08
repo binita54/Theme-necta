@@ -90,3 +90,5 @@ $string['footer_legal'] = 'Xavier Intl. College Trading as NECTA · CRICOS Provi
 
 // Accessibility
 $string['login_tagline'] = 'Sign in to continue your training and assessments.';
+
+

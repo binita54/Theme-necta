@@ -79,12 +79,10 @@ body.necta-login {
 }
 
 .necta-login-brand {
-  background: linear-gradient(
-    155deg,
-    var(--brand-orange-deep) 0%,
-    var(--brand-orange) 42%,
-    color-mix(in srgb, var(--brand-orange) 55%, #141210) 100%
-  );
+  background: linear-gradient(155deg,
+      var(--brand-orange-deep) 0%,
+      var(--brand-orange) 42%,
+      color-mix(in srgb, var(--brand-orange) 55%, #141210) 100%);
   color: #fff;
   padding: 48px 40px 40px;
 
@@ -162,6 +160,7 @@ body.necta-login {
 }
 
 @media (min-width: 992px) {
+
   .necta-login-split .necta-login-card #loginlogo,
   .necta-login-split .necta-login-card .login-logo {
     display: none !important;
@@ -198,7 +197,8 @@ samp,
 // ---------------------------------------------------------------------------
 // Dark default (admin setting) — colour-scheme + token overrides (Guide §3)
 // ---------------------------------------------------------------------------
-body.necta-dark-default {
+body.necta-dark-default,
+body.dark-mode {
   color-scheme: dark;
   --bg: #141418;
   --surface: #1e1e24;
@@ -233,6 +233,7 @@ body.layout-topbar {
     .drawer-toggler.drawer-left-toggle {
       display: none !important;
     }
+
     #theme_boost-drawers-courseindex.drawer:not(.show) {
       transform: translate3d(-105%, 0, 0);
     }
@@ -275,16 +276,12 @@ a.bg-primary {
   }
 }
 
-#region-main
-  .main-inner
-  a:not(.btn):not(.dropdown-item):not(.nav-link):not(.page-link),
+#region-main .main-inner a:not(.btn):not(.dropdown-item):not(.nav-link):not(.page-link),
 .necta-dashboard a:not(.btn):not(.dropdown-item) {
   color: var(--brand-orange);
 }
 
-#region-main
-  .main-inner
-  a:not(.btn):not(.dropdown-item):not(.nav-link):not(.page-link):hover,
+#region-main .main-inner a:not(.btn):not(.dropdown-item):not(.nav-link):not(.page-link):hover,
 .necta-dashboard a:not(.btn):not(.dropdown-item):hover {
   color: var(--brand-orange-deep);
 }
@@ -789,6 +786,7 @@ a.bg-primary {
 // Assign submission — file upload zone (Design Guide §6)
 // ---------------------------------------------------------------------------
 .path-mod-assign {
+
   .filemanager .fp-content,
   .fm-file-list,
   .filepicker .fp-content {
@@ -865,6 +863,7 @@ a.bg-primary {
 // Density (Guide §3)
 // ---------------------------------------------------------------------------
 body.density-compact {
+
   .compliance-tile,
   .necta-card {
     padding: 10px 12px;
@@ -885,6 +884,7 @@ body.density-compact {
 }
 
 body.density-comfy {
+
   .compliance-tile,
   .necta-card {
     padding: 22px;
@@ -926,13 +926,47 @@ body.density-comfy {
   opacity: 0.85;
 }
 
+.necta-dark-toggle {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 96px !important;
+  z-index: 1031 !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--brand-orange) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  text-indent: 0 !important;
+  white-space: nowrap !important;
+}
+
+.necta-dark-toggle:hover,
+.necta-dark-toggle:focus {
+  background: var(--brand-orange-deep) !important;
+  color: #fff !important;
+}
+
 .main-inner {
   max-width: 100% !important;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 #page-footer {
   max-width: 100% !important;
 }
+
 .primary-navigation .nav-link.active {
   background-color: var(--brand-orange) !important;
 }
@@ -940,6 +974,7 @@ body.density-comfy {
 .nav-link:hover {
   background-color: var(--brand-orange) !important;
 }
+
 .secondary-navigation .nav-link.active {
   background-color: var(--brand-orange) !important;
   color: #fff !important;
@@ -949,7 +984,7 @@ body.density-comfy {
   background-color: var(--brand-orange) !important;
   color: #fff !important;
 }
-new code
+
 // ---------------------------------------------------------------------------
 // Added code in course subject page
 // ---------------------------------------------------------------------------
@@ -973,6 +1008,7 @@ new code
   background-color: #e6eaf7;
   border: #e6eaf7 solid 1px;
 }
+
 // ---------------------------------------------------------------------------
 // Course page — activity rows as clean table-like list
 // ---------------------------------------------------------------------------
@@ -1001,7 +1037,7 @@ new code
 }
 
 // Remove the previous border-bottom approach
-.activity-item + .activity-item {
+.activity-item+.activity-item {
   border-top: 1px solid var(--line) !important; // Add top border instead
   margin-top: -1px !important; // Prevent double borders
 }
@@ -1088,6 +1124,7 @@ new code
   display: block !important;
   width: 100% !important;
 }
+
 // Force proper layout for course content
 .course-content {
   .section {
@@ -1112,11 +1149,12 @@ new code
   .region-content {
     padding: 20px !important;
 
-    > div {
+    >div {
       margin-bottom: 24px !important;
     }
   }
 }
+
 // ---------------------------------------------------------------------------
 // Added code in my courses page
 // ---------------------------------------------------------------------------
@@ -1171,6 +1209,7 @@ new code
     left: auto !important;
     z-index: 10 !important;
   }
+
   .dropdown .btn,
   .dropdown-toggle {
     background-color: rgba(255, 255, 255, 0.25) !important;
@@ -1189,12 +1228,14 @@ new code
     }
   }
 }
+
 // category border
 .categoryname {
   background-color: #e4e4e4 !important;
   border-radius: 0 !important;
   margin-top: 25px !important;
 }
+
 // ---------------------------------------------------------------------------
 // Frontpage — Available courses card grid
 // ---------------------------------------------------------------------------
@@ -1253,40 +1294,30 @@ new code
   &.odd::before {
     background: #2dcca1;
     background-image:
-      repeating-linear-gradient(
-        0deg,
+      repeating-linear-gradient(0deg,
         transparent,
         transparent 22px,
         rgba(255, 255, 255, 0.18) 22px,
-        rgba(255, 255, 255, 0.18) 23px
-      ),
-      repeating-linear-gradient(
-        90deg,
+        rgba(255, 255, 255, 0.18) 23px),
+      repeating-linear-gradient(90deg,
         transparent,
         transparent 22px,
         rgba(255, 255, 255, 0.18) 22px,
-        rgba(255, 255, 255, 0.18) 23px
-      );
+        rgba(255, 255, 255, 0.18) 23px);
   }
 
   &.even::before {
     background: #9b8fd4;
     background-image:
-      radial-gradient(
-        circle at 25% 35%,
+      radial-gradient(circle at 25% 35%,
         rgba(255, 255, 255, 0.18) 55px,
-        transparent 55px
-      ),
-      radial-gradient(
-        circle at 72% 65%,
+        transparent 55px),
+      radial-gradient(circle at 72% 65%,
         rgba(255, 255, 255, 0.18) 48px,
-        transparent 48px
-      ),
-      radial-gradient(
-        circle at 50% 85%,
+        transparent 48px),
+      radial-gradient(circle at 50% 85%,
         rgba(255, 255, 255, 0.18) 65px,
-        transparent 65px
-      );
+        transparent 65px);
   }
 
   // Hide ::before when real image exists
@@ -1416,6 +1447,7 @@ new code
     }
   }
 }
+
 /* hover color change */
 [data-region="filter"] .dropdown .btn:hover,
 [data-region="filter"] .dropdown-toggle:hover,
@@ -1443,19 +1475,13 @@ new code
    1. GREETING — Dashboard only
    ═══════════════════════════════════════════════════════════════════════ */
 
-body#page-my-index:not(.page-mycourses)
-  #page-header
-  .page-header-headings
-  h1.h2 {
+body#page-my-index:not(.page-mycourses) #page-header .page-header-headings h1.h2 {
   font-size: 0 !important;
   line-height: 0 !important;
   overflow: hidden;
 }
 
-body#page-my-index:not(.page-mycourses)
-  #page-header
-  .page-header-headings
-  h1.h2::before {
+body#page-my-index:not(.page-mycourses) #page-header .page-header-headings h1.h2::before {
   //content: "Hi, Admin! 👋";
   display: block;
   font-size: 1.75rem;
@@ -1465,10 +1491,7 @@ body#page-my-index:not(.page-mycourses)
 }
 
 /* Ensure My Courses heading is untouched */
-body#page-my-index.page-mycourses
-  #page-header
-  .page-header-headings
-  h1.h2::before {
+body#page-my-index.page-mycourses #page-header .page-header-headings h1.h2::before {
   content: none !important;
 }
 
@@ -1488,9 +1511,9 @@ body#page-my-index:not(.page-mycourses) #page-content #region-main {
       These are non-block siblings that break grid placement
    ═══════════════════════════════════════════════════════════════════════ */
 
-body#page-my-index:not(.page-mycourses) aside#block-region-content > a,
-body#page-my-index:not(.page-mycourses) aside#block-region-content > span,
-body#page-my-index:not(.page-mycourses) aside#block-region-content > h2 {
+body#page-my-index:not(.page-mycourses) aside#block-region-content>a,
+body#page-my-index:not(.page-mycourses) aside#block-region-content>span,
+body#page-my-index:not(.page-mycourses) aside#block-region-content>h2 {
   display: none !important;
 }
 
@@ -1508,25 +1531,19 @@ body#page-my-index:not(.page-mycourses) aside#block-region-content {
 }
 
 /* Timeline → left col, row 1 */
-body#page-my-index:not(.page-mycourses)
-  aside#block-region-content
-  section#inst14 {
+body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst14 {
   grid-column: 1 !important;
   grid-row: 1 !important;
 }
 
 /* NECTA Compliance → left col, row 2 */
-body#page-my-index:not(.page-mycourses)
-  aside#block-region-content
-  section#inst17 {
+body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst17 {
   grid-column: 1 !important;
   grid-row: 2 !important;
 }
 
 /* Calendar → right col, spans rows 1 and 2 */
-body#page-my-index:not(.page-mycourses)
-  aside#block-region-content
-  section#inst15 {
+body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst15 {
   grid-column: 2 !important;
   grid-row: 1 / span 2 !important;
 }
@@ -1535,9 +1552,7 @@ body#page-my-index:not(.page-mycourses)
    5. DASHBOARD — Block card polish
    ═══════════════════════════════════════════════════════════════════════ */
 
-body#page-my-index:not(.page-mycourses)
-  aside#block-region-content
-  section.block {
+body#page-my-index:not(.page-mycourses) aside#block-region-content section.block {
   border-radius: 0 !important;
   border: 1px solid #e8e8e8 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
@@ -1545,10 +1560,7 @@ body#page-my-index:not(.page-mycourses)
   margin-bottom: 0 !important;
 }
 
-body#page-my-index:not(.page-mycourses)
-  aside#block-region-content
-  section.block
-  .card-body {
+body#page-my-index:not(.page-mycourses) aside#block-region-content section.block .card-body {
   padding: 1.25rem !important;
 }
 
@@ -1561,18 +1573,14 @@ body#page-my-index:not(.page-mycourses) section#inst14 .event-name a {
   font-weight: 600;
 }
 
-body#page-my-index:not(.page-mycourses)
-  section#inst15
-  .btn-primary[data-action="new-event-button"] {
+body#page-my-index:not(.page-mycourses) section#inst15 .btn-primary[data-action="new-event-button"] {
   background-color: #e05c2a !important;
   border-color: #e05c2a !important;
   color: #fff !important;
   border-radius: 0;
 }
 
-body#page-my-index:not(.page-mycourses)
-  section#inst15
-  .btn-primary[data-action="new-event-button"]:hover {
+body#page-my-index:not(.page-mycourses) section#inst15 .btn-primary[data-action="new-event-button"]:hover {
   background-color: #c44e22 !important;
   border-color: #c44e22 !important;
 }
@@ -1582,10 +1590,7 @@ body#page-my-index:not(.page-mycourses) section#inst15 .arrow_link {
   font-weight: 600;
 }
 
-body#page-my-index:not(.page-mycourses)
-  section#inst15
-  .today
-  .day-number-circle {
+body#page-my-index:not(.page-mycourses) section#inst15 .today .day-number-circle {
   background-color: #e05c2a !important;
   border-radius: 0;
   width: 28px;
@@ -1605,10 +1610,7 @@ body#page-my-index:not(.page-mycourses) section#inst15 .calendar_event_course {
   border-color: #e05c2a !important;
 }
 
-body#page-my-index:not(.page-mycourses)
-  section#inst15
-  [data-region="day-content"]
-  a {
+body#page-my-index:not(.page-mycourses) section#inst15 [data-region="day-content"] a {
   color: #e05c2a !important;
   font-size: 0.78rem;
 }
@@ -1643,9 +1645,7 @@ body#page-my-index.page-mycourses .card-deck.dashboard-card-deck {
   margin-left: 0 !important;
 }
 
-body#page-my-index.page-mycourses
-  .card-deck.dashboard-card-deck
-  .dashboard-card {
+body#page-my-index.page-mycourses .card-deck.dashboard-card-deck .dashboard-card {
   margin: 0 !important;
   max-width: 100% !important;
   width: 100% !important;
@@ -1672,15 +1672,9 @@ body#page-my-index.page-mycourses
     grid-template-columns: 1fr !important;
   }
 
-  body#page-my-index:not(.page-mycourses)
-    aside#block-region-content
-    section#inst14,
-  body#page-my-index:not(.page-mycourses)
-    aside#block-region-content
-    section#inst17,
-  body#page-my-index:not(.page-mycourses)
-    aside#block-region-content
-    section#inst15 {
+  body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst14,
+  body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst17,
+  body#page-my-index:not(.page-mycourses) aside#block-region-content section#inst15 {
     grid-column: 1 !important;
     grid-row: auto !important;
   }
@@ -1706,9 +1700,9 @@ $necta-dashboard-page: "body#page-my-index:not(.page-mycourses)";
     align-items: start !important;
   }
 
-  aside#block-region-content > a,
-  aside#block-region-content > span,
-  aside#block-region-content > h2 {
+  aside#block-region-content>a,
+  aside#block-region-content>span,
+  aside#block-region-content>h2 {
     display: none !important;
   }
 
@@ -1936,6 +1930,7 @@ $necta-dashboard-page: "body#page-my-index:not(.page-mycourses)";
 // Admin sidebar — consolidated, no conflicts
 // ---------------------------------------------------------------------------
 .path-admin {
+
   // ── Sidebar container ────────────────────────────────────────────────
   .secondary-navigation {
     float: left !important;
@@ -2018,8 +2013,8 @@ $necta-dashboard-page: "body#page-my-index:not(.page-mycourses)";
   }
 
   // ── More menu always open ────────────────────────────────────────────
-  .secondary-navigation .dropdownmoremenu > a.dropdown-toggle,
-  .secondary-navigation .dropdownmoremenu > .nav-link {
+  .secondary-navigation .dropdownmoremenu>a.dropdown-toggle,
+  .secondary-navigation .dropdownmoremenu>.nav-link {
     display: none !important;
   }
 
@@ -2090,2292 +2085,997 @@ $necta-dashboard-page: "body#page-my-index:not(.page-mycourses)";
   }
 }
 
-// fixing navlink position
+// ---------------------------------------------------------------------------
+// Admin sidebar — improved design with icons, sections, grouped nav
+// ---------------------------------------------------------------------------
 .path-admin {
-  li.dropdownmoremenu[data-region="morebutton"] {
-    position: relative;
 
-    .dropdown-menu {
-      left: -10px !important;
-      right: auto !important;
-    }
+  // ── Sidebar container ────────────────────────────────────────────────
+  .secondary-navigation {
+    float: left !important;
+    width: 240px !important;
+    min-width: 240px !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    left: 0 !important;
+    border-bottom: none !important;
+    border-right: 1px solid var(--line) !important;
+    background: var(--surface) !important;
+    min-height: 600px !important;
+    overflow: visible !important;
   }
-}
 
-// ---------------------------------------------------------------------------
-// Login Page cleanup
-// ---------------------------------------------------------------------------
+  .secondary-navigation nav.moremenu {
+    width: 240px !important;
+    overflow: visible !important;
+  }
 
+  .secondary-navigation ul.nav.more-nav.nav-tabs {
+    flex-direction: column !important;
+    width: 240px !important;
+    border-bottom: none !important;
+    padding: 12px 8px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
 
-// remove placeholder logo
-.necta-login-brand-logo {
-  display: none !important;
-}
-
-// remove login box shadow
-.login-container {
-  box-shadow: none !important;
-}
-
-// ---------------------------------------------------------------------------
-// NECTA Learn — Login Page Editorial Redesign v2
-// Target: body.necta-login (Moodle login page)
-// Goal: Match Image 1 — editorial split with large typography + underline form
-// ---------------------------------------------------------------------------
-
-// ---------------------------------------------------------------------------
-// 0. Kill the blue Moodle header band & page chrome
-// ---------------------------------------------------------------------------
-body.necta-login #page-header,
-body.necta-login .page-header-headings,
-body.necta-login #page-navbar,
-body.necta-login .breadcrumb-nav,
-body.necta-login nav.navbar.fixed-top,
-body.necta-login nav.navbar.sticky-top,
-body.necta-login .navbar {
-  display: none !important;
-}
-
-body.necta-login #page,
-body.necta-login #page-wrapper,
-body.necta-login #page-content {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-// ---------------------------------------------------------------------------
-// 1. Editorial top bar — pure CSS, no Moodle navbar
-// ---------------------------------------------------------------------------
-body.necta-login .necta-login-page {
-  position: relative;
-  min-height: 100vh;
-
-  // Top bar rendered as pseudo-element on the page itself
-  &::before {
-    content: "NECTA LEARN  •  RTO 46048";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 44px;
-    line-height: 44px;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-    font-family: var(--font-sans);
-    font-size: 10.5px;
+  // ── Sidebar header block ─────────────────────────────────────────────
+  .secondary-navigation ul.nav.more-nav.nav-tabs::before {
+    content: "Settings";
+    display: block;
+    font-family: var(--font-display);
+    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 0.09em;
+    color: var(--ink);
+    padding: 8px 12px 4px;
+    margin-bottom: 4px;
+  }
+
+  .secondary-navigation ul.nav.more-nav.nav-tabs::after {
+    content: "ADMIN PANEL";
+    display: block;
+    order: -1;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-3);
-    padding: 0 32px;
-    z-index: 500;
-    box-sizing: border-box;
+    padding: 12px 12px 0;
+    margin-bottom: -8px;
   }
-}
 
-// CRICOS right text — on the split wrapper
-body.necta-login .necta-login-split::before {
-  content: "CRICOS 04182A ";
-  position: fixed;
-  top: 0;
-  right: 32px;
-  height: 44px;
-  line-height: 44px;
-  font-family: var(--font-sans);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  z-index: 501;
-  pointer-events: none;
-}
-
-// Centre wordmark
-body.necta-login .necta-login-split::after {
-  content: "NECTA. Learn";
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 44px;
-  line-height: 44px;
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  z-index: 501;
-  pointer-events: none;
-}
-
-// ---------------------------------------------------------------------------
-// 2. Split layout — push below top bar
-// ---------------------------------------------------------------------------
-body.necta-login .necta-login-split {
-  min-height: 100vh !important;
-  padding-top: 44px !important;
-  box-sizing: border-box;
-  display: flex !important;
-}
-
-// ---------------------------------------------------------------------------
-// 3. Brand (left) column — cream + editorial headline
-// ---------------------------------------------------------------------------
-body.necta-login .necta-login-brand {
-  position: relative;
-  min-height: calc(100vh - 44px) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden;
-
-  /* Background color */
-  background-color: #f8f8f8;
-
-  /* Square pattern */
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
-
-  background-size: 50px 50px; /* size of squares */
-}
-
-/* One centered logo */
-body.necta-login .necta-login-brand::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background-image: url("http://localhost/pluginfile.php/1/core_admin/logocompact/300x300/1779688744/cropped-logo-1.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Hide unwanted text */
-body.necta-login .necta-login-brand::before,
-body.necta-login .necta-login-brand .necta-login-brand-inner::before,
-body.necta-login .necta-login-brand-title,
-body.necta-login .necta-login-brand-tagline,
-body.necta-login .necta-login-brand-college,
-.necta-login-edition,
-body.necta-login .necta-login-brand .necta-login-brand-inner {
-  display: none !important;
-}
-
-/* Hide default logo */
-body.necta-login .logo,
-body.necta-login img[src*="logocompact"] {
-  display: none !important;
-}
-
-button[data-modal="alert"][data-modal-title-str*="cookiesenabled"] {
-  display: none !important;
-}
-
-// ---------------------------------------------------------------------------
-// 4. Form (right) column — centred, no card, underline fields
-// ---------------------------------------------------------------------------
-body.necta-login .necta-login-form-col {
-  background: var(--bg) !important;
-  border-left: 1px solid var(--line) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: calc(100vh - 44px) !important;
-  padding: 48px 40px !important;
-  box-sizing: border-box;
-}
-
-// Strip card chrome — card becomes transparent, no border/shadow
-body.necta-login .necta-login-card {
-  max-width: 400px !important;
-  width: 100% !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  margin: 0 auto !important;
-}
-
-// Also flatten Moodle's inner .login-container / .login-wrapper
-body.necta-login .necta-login-card .login-container,
-body.necta-login .necta-login-card .login-wrapper {
-  padding: 0 !important;
-  max-width: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  border: none !important;
-}
-
-// Remove duplicate "● SIGN IN" — only show on .loginform::before
-body.necta-login .necta-login-card .login-wrapper::before {
-  display: none !important;
-}
-
-// "● SIGN IN" eyebrow — single instance on loginform
-body.necta-login .necta-login-card .loginform::before {
-  content: "● SIGN IN";
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--brand-orange);
-  margin-bottom: 18px;
-}
-
-// "Welcome back." heading style
-body.necta-login .necta-login-card .login-heading,
-body.necta-login .necta-login-card h2.login-heading {
-  font-family: var(--font-display) !important;
-  font-size: clamp(30px, 3.5vw, 46px) !important;
-  font-weight: 700 !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.02em !important;
-  color: var(--ink) !important;
-  margin: 0 0 8px 0 !important;
-
-  em,
-  .accent {
-    color: var(--brand-orange);
-    font-style: italic;
+  .secondary-navigation ul.nav.more-nav.nav-tabs .nav-item {
+    display: block !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
   }
-}
 
-// Sub-tagline below heading
-body.necta-login .necta-login-card .login-desc {
-  font-family: var(--font-sans) !important;
-  font-size: 13.5px !important;
-  font-style: italic !important;
-  color: var(--ink-3) !important;
-  line-height: 1.55 !important;
-  margin-bottom: 32px !important;
-}
+  .secondary-navigation .dropdownmoremenu {
+    display: none !important;
+  }
 
-// Form labels — UPPERCASE tiny, "USERNAME" style
-body.necta-login .necta-login-card label {
-  font-family: var(--font-sans) !important;
-  font-size: 10px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.11em !important;
-  text-transform: uppercase !important;
-  color: var(--ink-3) !important;
-  margin-bottom: 4px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: baseline !important;
-}
+  .secondary-navigation .nav-item[data-forceintomoremenu="true"] {
+    display: block !important;
+  }
 
-// Username label hint text
-body.necta-login .necta-login-card label[for="username"]::after {
-  content: "Student ID or email";
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--ink-4);
-  text-transform: none;
-  letter-spacing: 0;
-}
+  // ── Section group labels ─────────────────────────────────────────────
+  // Inject visual section breaks using sibling selectors on known items.
+  // "Users" = first item after General → start "Site" group label
+  .secondary-navigation .nav-item:nth-child(2) {
+    margin-top: 12px;
 
-// Underline inputs — strip all box borders, just bottom line
-body.necta-login .necta-login-card .form-control,
-body.necta-login .necta-login-card input[type="text"],
-body.necta-login .necta-login-card input[type="email"],
-body.necta-login .necta-login-card input[type="password"] {
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1.5px solid var(--line-strong) !important;
-  border-radius: 0 !important;
-  padding: 10px 0 !important;
-  font-family: var(--font-sans) !important;
-  font-size: 15px !important;
-  color: var(--ink) !important;
-  box-shadow: none !important;
-  width: 100% !important;
-  transition: border-color 0.18s ease;
-  -webkit-appearance: none;
-  appearance: none;
+    &::before {
+      content: "SITE";
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding: 4px 12px 2px;
+    }
+  }
 
-  &:focus {
-    outline: none !important;
-    border-bottom: 2px solid var(--brand-orange) !important;
+  // "Plugins" = 5th item → start "Platform" group label
+  .secondary-navigation .nav-item:nth-child(5) {
+    margin-top: 4px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+
+    &::before {
+      content: "PLATFORM";
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding: 4px 12px 2px;
+    }
+  }
+
+  // "Reports" = 8th item → start "Analytics" group label
+  .secondary-navigation .nav-item:nth-child(8) {
+    margin-top: 4px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+
+    &::before {
+      content: "ANALYTICS";
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding: 4px 12px 2px;
+    }
+  }
+
+  // ── Nav link base style ──────────────────────────────────────────────
+  .secondary-navigation .nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 9px 12px !important;
+    margin: 1px 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: var(--ink-2) !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: none !important;
+    border-radius: var(--radius-sm) !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
     box-shadow: none !important;
-    background: transparent !important;
-  }
-
-  &::placeholder {
-    color: var(--ink-4) !important;
-  }
-}
-
-// Forgotten password link — right-aligned, small
-body.necta-login .necta-login-card .login-form-forgotpassword {
-  display: flex !important;
-  justify-content: flex-end !important;
-  margin-top: 4px !important;
-  margin-bottom: 0 !important;
-
-  a {
-    font-family: var(--font-sans) !important;
-    font-size: 11px !important;
-    color: var(--ink-3) !important;
-    text-decoration: underline !important;
-    text-underline-offset: 2px;
-
-    &:hover {
-      color: var(--brand-orange) !important;
-    }
-  }
-}
-
-// Dark "Log in" button — full width, arrow left, ENTER right
-body.necta-login .necta-login-card .btn-primary {
-  width: 100% !important;
-  background: var(--ink) !important;
-  background-color: var(--ink) !important;
-  background-image: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 16px 22px !important;
-  margin-top: 28px !important;
-  font-family: var(--font-sans) !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.02em !important;
-  color: #fff !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  transition: background 0.18s ease !important;
-  position: relative;
-  text-align: center !important;
-
-  &::before {
-    content: "→";
-    font-size: 18px;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  &::after {
-    content: "ENTER ↵";
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
-    opacity: 0.55;
-    flex-shrink: 0;
-  }
-
-  &:hover,
-  &:focus {
-    background: #232120 !important;
-    background-color: #232120 !important;
-    color: #fff !important;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// 5. Below-form elements — hide noise, style what remains
-// ---------------------------------------------------------------------------
-
-// Hide "Some courses may allow guest access" heading + button clutter
-body.necta-login .necta-login-card .potentialidps h6,
-body.necta-login .necta-login-card .potentialidps > p,
-body.necta-login .necta-login-card #guestlogin > h2 {
-  display: none !important;
-}
-
-body.necta-login .necta-login-card #guestlogin {
-  margin-top: 20px;
-  text-align: center;
-
-  input[type="submit"],
-  .btn {
-    font-family: var(--font-sans) !important;
-    font-size: 11px !important;
-    background: transparent !important;
-    border: 1px solid var(--line-strong) !important;
-    color: var(--ink-3) !important;
-    padding: 8px 18px !important;
-    border-radius: 0 !important;
-    margin-top: 0 !important;
-    width: auto !important;
-
-    &::before,
-    &::after {
-      display: none !important;
-    }
+    transition: background 0.12s, color 0.12s !important;
 
     &:hover {
       background: var(--surface-2) !important;
       color: var(--ink) !important;
     }
   }
-}
 
-// Cookies notice — muted
-body.necta-login .necta-login-card #cookiesnotice,
-body.necta-login .necta-login-card .cookieinfo {
-  font-size: 11px !important;
-  color: var(--ink-4) !important;
-  margin-top: 16px;
-  text-align: center;
-}
-
-// Divider
-body.necta-login .necta-login-card hr,
-body.necta-login .necta-login-card .login-divider {
-  border-color: var(--line) !important;
-  margin: 24px 0 !important;
-}
-
-// ---------------------------------------------------------------------------
-// 6. Footer — dark bar pinned to bottom
-// ---------------------------------------------------------------------------
-body.necta-login #page-footer {
-  background: var(--ink) !important;
-  color: rgba(255, 255, 255, 0.5) !important;
-  font-size: 11px !important;
-  text-align: center;
-  padding: 10px 32px !important;
-  letter-spacing: 0.04em;
-
-  a {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// 7. Hide the brand-column logo placeholder
-// ---------------------------------------------------------------------------
-.necta-login-brand-logo {
-  display: none !important;
-}
-
-// ---------------------------------------------------------------------------
-// 8. Responsive
-// ---------------------------------------------------------------------------
-@media (max-width: 991px) {
-  body.necta-login .necta-login-brand {
-    min-height: auto !important;
-    justify-content: flex-start !important;
+  // ── Per-item icons via ::before pseudo ──────────────────────────────
+  // Uses the Tabler icon font already loaded in your theme
+  .secondary-navigation .nav-link::before {
+    font-family: "tabler-icons" !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+    opacity: 0.7;
+    content: "\ea77"; // ti-settings fallback
   }
 
-  body.necta-login .necta-login-brand .necta-login-brand-inner {
-    padding: 40px 28px 36px !important;
+  // General
+  .secondary-navigation .nav-item:nth-child(1) .nav-link::before {
+    content: "\eabc";
   }
 
-  body.necta-login .necta-login-brand-title {
-    font-size: clamp(42px, 9vw, 64px) !important;
+  // ti-adjustments-horizontal
+  // Users
+  .secondary-navigation .nav-item:nth-child(2) .nav-link::before {
+    content: "\ecfe";
   }
 
-  body.necta-login .necta-login-form-col {
-    min-height: auto !important;
-    padding: 36px 24px 56px !important;
-    border-left: none !important;
-    border-top: 1px solid var(--line) !important;
+  // ti-users
+  // Courses
+  .secondary-navigation .nav-item:nth-child(3) .nav-link::before {
+    content: "\eb41";
   }
 
-  body.necta-login .necta-login-split::before,
-  body.necta-login .necta-login-split::after {
-    display: none;
+  // ti-book
+  // Grades
+  .secondary-navigation .nav-item:nth-child(4) .nav-link::before {
+    content: "\ec7b";
   }
 
-  body.necta-login .necta-login-page::before {
-    content: "NECTA. Learn";
-    text-align: center;
-    padding: 0;
+  // ti-chart-bar
+  // Plugins
+  .secondary-navigation .nav-item:nth-child(5) .nav-link::before {
+    content: "\ecb3";
   }
 
-  body.necta-login aside.necta-login-brand {
+  // ti-puzzle
+  // Appearance
+  .secondary-navigation .nav-item:nth-child(6) .nav-link::before {
+    content: "\f050";
+  }
+
+  // ti-palette
+  // Server
+  .secondary-navigation .nav-item:nth-child(7) .nav-link::before {
+    content: "\ecf3";
+  }
+
+  // ti-server
+  // Reports
+  .secondary-navigation .nav-item:nth-child(8) .nav-link::before {
+    content: "\ecba";
+  }
+
+  // ti-report
+  // Development
+  .secondary-navigation .nav-item:nth-child(9) .nav-link::before {
+    content: "\eb78";
+  }
+
+  // ti-terminal-2
+
+  // ── Active state ─────────────────────────────────────────────────────
+  .secondary-navigation .nav-link.active,
+  .secondary-navigation .nav-link.active_tree_node {
+    color: var(--brand-orange) !important;
+    background: color-mix(in srgb, var(--brand-orange) 10%, transparent) !important;
+    font-weight: 600 !important;
+    box-sizing: border-box !important;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  // ── More menu always open ─────────────────────────────────────────────
+  .secondary-navigation .dropdownmoremenu>a.dropdown-toggle,
+  .secondary-navigation .dropdownmoremenu>.nav-link {
     display: none !important;
   }
-}
 
-@media (max-width: 575px) {
-  body.necta-login .necta-login-brand .necta-login-brand-inner {
-    padding: 28px 18px 28px !important;
-  }
-
-  body.necta-login .necta-login-form-col {
-    padding: 24px 18px 48px !important;
-  }
-
-  body.necta-login .necta-login-brand-title {
-    font-size: clamp(36px, 11vw, 52px) !important;
-  }
-
-  body.necta-login aside.necta-login-brand {
-    display: none !important;
-  }
-}
-
-.login-heading {
-  display: none !important;
-}
-
-// remove scroll in login page
-/* Make login page fit within viewport - no scrolling needed */
-#page-login-index #page-wrapper,
-#page-login-index #page {
-    height: 100vh;
-    overflow: hidden;
-}
-
-#page-login-index #region-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#page-login-index .loginbox {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* Ensure footer stays visible at bottom */
-#page-login-index #page-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-// ---------------------------------------------------------------------------
-// Sidebar design fix in site admin and responsive
-// ---------------------------------------------------------------------------
-
-.path-admin{
-    .moremenu.navigation.observed{
-        position: relative; 
-        left: -20px !important; 
-}
-}
-
-// ---------------------------------------------------------------------------
-// Dark theme
-// ---------------------------------------------------------------------------
-
-body.dark-mode {
-    // ============================================================
-  // NECTA Moodle — Dark Theme
-  // custom.scss
-  // ============================================================
-
-  // ── Design Tokens ───────────────────────────────────────────
-  $necta-orange:        #E85D04;
-  $necta-orange-light:  #FF7B2C;
-  $necta-orange-dim:    #B84A00;
-
-  $bg-base:             #0D0F12;
-  $bg-surface:          #141719;
-  $bg-card:             #1A1D21;
-  $bg-card-hover:       #202429;
-  $bg-elevated:         #242830;
-  $bg-nav:              #111315;
-
-  $border-subtle:       rgba(255, 255, 255, 0.06);
-  $border-default:      rgba(255, 255, 255, 0.10);
-  $border-strong:       rgba(255, 255, 255, 0.18);
-
-  $text-primary:        #F0F2F5;
-  $text-secondary:      #A8B0BC;
-  $text-muted:          #636B78;
-  $text-inverse:        #0D0F12;
-
-  $teal-accent:         #00C49A;
-  $teal-dim:            #007A60;
-
-  $shadow-sm:           0 1px 3px rgba(0,0,0,0.4);
-  $shadow-md:           0 4px 16px rgba(0,0,0,0.5);
-  $shadow-lg:           0 8px 32px rgba(0,0,0,0.6);
-  $shadow-glow:         0 0 24px rgba(232, 93, 4, 0.15);
-
-
-  // ── Global Reset ─────────────────────────────────────────────
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-
-  // ── Body & Base ──────────────────────────────────────────────
-  body,
-  #page,
-  #page-wrapper,
-  .pagelayout-base,
-  .pagelayout-standard,
-  .pagelayout-mydashboard,
-  #page-my-index,
-  #page-my-index #page,
-  #page-my-index #page-wrapper,
-  #page-my-index #topofscroll,
-  #page-my-index #page-content,
-  #page-my-index #region-main,
-  #page-my-index #region-main-box {
-    background-color: $bg-base !important;
-    color: $text-primary !important;
-  }
-
-
-  // ── Top Navigation Bar ───────────────────────────────────────
-  #nav-bar,
-  .navbar,
-  nav.navbar {
-    background-color: $bg-nav !important;
-    border-bottom: 1px solid $border-subtle !important;
-    box-shadow: $shadow-md !important;
-
-    .navbar-brand,
-    .navbar-brand img {
-      filter: brightness(1.1);
-    }
-
-    .nav-link,
-    .nav-item > a,
-    .dropdown-item {
-      color: $text-secondary !important;
-      transition: color 0.2s ease, background-color 0.2s ease;
-
-      &:hover,
-      &:focus {
-        color: $text-primary !important;
-        background-color: rgba(255,255,255,0.05) !important;
-      }
-    }
-
-    .nav-item.active > a,
-    .nav-link.active {
-      border-bottom: 2px solid $necta-orange;
-    }
-
-    .nav-item.currentpage > a,
-    li.nav-item.active > a.nav-link {
-      background-color: $necta-orange !important;
-      color: #fff !important;
-      border-radius: 4px;
-
-      &:hover {
-        background-color: $necta-orange-light !important;
-      }
-    }
-
-    .popover-region-toggle,
-    .nav-link .icon {
-      color: $text-secondary !important;
-
-      &:hover {
-        color: $necta-orange !important;
-      }
-    }
-
-    .usermenu .usertext {
-      color: $text-secondary !important;
-    }
-
-    .custom-control-label,
-    #action-menu-toggle-0 {
-      color: $text-secondary !important;
-    }
-  }
-
-  // Dropdown menus
-  .dropdown-menu {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    box-shadow: $shadow-lg !important;
-
-    .dropdown-item {
-      color: $text-secondary !important;
-
-      &:hover,
-      &:focus {
-        background-color: rgba(255,255,255,0.06) !important;
-        color: $text-primary !important;
-      }
-
-      &.active {
-        background-color: $necta-orange !important;
-        color: #fff !important;
-      }
-    }
-
-    .dropdown-divider {
-      border-color: $border-subtle !important;
-    }
-  }
-
-
-  // ── Secondary Navigation (Course tabs) ──────────────────────
-  .secondary-navigation,
-  #page .secondary-navigation,
-  .secondary-navigation .navigation,
-  #page-header ~ .secondary-navigation,
-  .secondary-navigation .nav-tabs {
-    background-color: $bg-surface !important;
-    border-bottom: 1px solid $border-subtle !important;
-
-    nav,
-    nav.moremenu,
-    .nav,
-    ul.nav {
-      background-color: $bg-surface !important;
-    }
-  }
-
-  .secondary-navigation,
-  .nav-tabs,
-  #page-header .nav-tabs {
-    .nav-link,
-    .nav-item > a {
-      color: $text-secondary !important;
-      border: none !important;
-      border-bottom: 2px solid transparent !important;
-      border-radius: 0 !important;
-      padding: 0.75rem 1.25rem;
-      transition: all 0.2s ease;
-
-      &:hover {
-        color: $text-primary !important;
-        border-bottom-color: $border-strong !important;
-        background: transparent !important;
-      }
-    }
-
-    .nav-link.active,
-    .nav-item.active > a,
-    li.nav-item > a[aria-current="page"] {
-      color: #fff !important;
-      background-color: $necta-orange !important;
-      border-bottom-color: $necta-orange !important;
-      border-radius: 4px 4px 0 0 !important;
-    }
-  }
-
-
-  // ── Page Header ──────────────────────────────────────────────
-  #page-header,
-  .page-header-headings,
-  .courseheader {
-    background-color: $bg-base !important;
-    border-bottom: 1px solid $border-subtle !important;
-
-    h1, h2, h3, h4, h5, h6,
-    .h2 {
-      color: $text-primary !important;
-      font-weight: 600 !important;
-    }
-  }
-
-
-  // ── Main Content Area ────────────────────────────────────────
-  #region-main,
-  .main-inner,
-  #page-content,
-  .course-content,
-  [role="main"] {
-    background-color: $bg-base !important;
-    color: $text-primary !important;
-  }
-
-
-  // ── Typography ───────────────────────────────────────────────
-  h1, h2, h3, h4, h5, h6 {
-    color: $text-primary !important;
-  }
-
-  p, li, td, th, label, span {
-    color: $text-primary !important;
-  }
-
-  .text-muted,
-  .dimmed_text,
-  small {
-    color: $text-muted !important;
-  }
-
-  .text-dark {
-    color: $text-primary !important;
-  }
-
-  a {
-    color: $necta-orange-light !important;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: lighten($necta-orange-light, 12%) !important;
-      text-decoration: underline;
-    }
-  }
-
-
-  // ── Cards (generic) ──────────────────────────────────────────
-  .card {
-    background-color: $bg-card-hover !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 10px !important;
-    box-shadow: $shadow-sm !important;
-    color: $text-primary !important;
-
-    .card-header {
-      background-color: $bg-elevated !important;
-      border-bottom: 1px solid $border-subtle !important;
-      color: $text-primary !important;
-      font-weight: 600;
-    }
-
-    .card-footer {
-      background-color: $bg-elevated !important;
-      border-top: 1px solid $border-subtle !important;
-    }
-  }
-
-  // Block cards
-  .block.card,
-  section.block,
-  .block_necta_dashboard.card,
-  .block_calendar_month.card,
-  .block_recentlyaccesseditems.card,
-  [data-block].card {
-    background-color: $bg-card !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 10px !important;
-    box-shadow: $shadow-md !important;
-    color: $text-primary !important;
-
-    .card-body {
-      background-color: $bg-card !important;
-    }
-
-    .h5.card-title,
-    .card-title {
-      color: $text-secondary !important;
-      font-size: 0.7rem !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.08em !important;
-      text-transform: uppercase !important;
-    }
-  }
-
-
-  // ── Course Boxes (home page / catalog) ───────────────────────
-  // Single authoritative block — covers all nesting levels
-  .frontpage-course-list-enrolled .courses .coursebox,
-  .courses .coursebox,
-  .coursebox {
-    background-color: $bg-card !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 10px !important;
-    box-shadow: $shadow-sm !important;
-    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
-    overflow: hidden;
-
-    & > .card,
-    & .card,
-    & .card-body,
-    & > .card > .card-body,
-    & .content,
-    & .info {
-      background-color: $bg-card !important;
-      color: $text-primary !important;
-      border-color: $border-subtle !important;
-    }
-
-    .courseimage,
-    .course-card-img,
-    img.card-img-top {
-      filter: brightness(0.85) saturate(0.9);
-      border-bottom: 1px solid $border-subtle;
-    }
-
-    h3.coursename a,
-    .coursename a,
-    .card-title,
-    .card-title a {
-      color: $text-primary !important;
-      font-weight: 600;
-
-      &:hover {
-        color: $necta-orange-light !important;
-        text-decoration: none !important;
-      }
-    }
-
-    .summary,
-    .course-description,
-    .card-text,
-    p {
-      color: $text-secondary !important;
-      line-height: 1.6;
-    }
-
-    .badge,
-    .category-name,
-    .course-category {
-      background-color: $bg-elevated !important;
-      color: $text-secondary !important;
-      border: 1px solid $border-default !important;
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 0.75rem;
-    }
-
-    .teachers,
-    .enrolmenticons,
-    .course-contacts {
-      color: $text-muted !important;
-
-      a {
-        color: $necta-orange-light !important;
-      }
-    }
-  }
-
-  // Extra-specificity fallback for deeply nested card bodies
-  #region-main .coursebox > .card,
-  #region-main .coursebox .card-body,
-  [role="main"] .coursebox .card-body {
-    background-color: $bg-card !important;
-    color: $text-primary !important;
-  }
-
-
-  // ── Sidebar / Blocks ─────────────────────────────────────────
-  .block,
-  aside .block,
-  #nav-drawer,
-  .drawer {
-    background-color: $bg-surface !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 8px !important;
-    box-shadow: $shadow-sm !important;
-
-    .card-title,
-    .block_title,
-    .header .title {
-      color: $text-primary !important;
-      border-bottom: 1px solid $border-subtle !important;
-      padding-bottom: 0.5rem;
-    }
-
-    .block_tree .tree_item a,
-    .block-navigation a {
-      color: $text-secondary !important;
-
-      &:hover {
-        color: $text-primary !important;
-      }
-    }
-  }
-
-  // Nav drawer (left slide-out)
-  #nav-drawer {
-    background-color: $bg-nav !important;
-    border-right: 1px solid $border-subtle !important;
-
-    .list-group-item {
-      background-color: transparent !important;
-      color: $text-secondary !important;
-      border-color: $border-subtle !important;
-
-      &:hover,
-      &:focus,
-      &.active {
-        background-color: rgba(255,255,255,0.05) !important;
-        color: $text-primary !important;
-      }
-    }
-  }
-
-
-  // ── Forms ────────────────────────────────────────────────────
-  .form-control,
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="number"],
-  textarea,
-  select {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-primary !important;
-    border-radius: 6px !important;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-    &::placeholder {
-      color: $text-muted !important;
-    }
-
-    &:focus {
-      background-color: $bg-elevated !important;
-      border-color: $necta-orange !important;
-      box-shadow: 0 0 0 3px rgba($necta-orange, 0.18) !important;
-      color: $text-primary !important;
-      outline: none !important;
-    }
-  }
-
-
-  // ── Buttons ──────────────────────────────────────────────────
-  .btn-primary,
-  input[type="submit"].btn-primary {
-    background-color: $necta-orange !important;
-    border-color: $necta-orange !important;
-    color: #fff !important;
-    font-weight: 600;
-    border-radius: 6px !important;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-
-    &:hover,
-    &:focus {
-      background-color: $necta-orange-light !important;
-      border-color: $necta-orange-light !important;
-      box-shadow: 0 4px 12px rgba($necta-orange, 0.35) !important;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      background-color: $necta-orange-dim !important;
-      transform: translateY(0);
-    }
-  }
-
-  .btn-secondary {
-    background-color: $bg-elevated !important;
-    border-color: $border-default !important;
-    color: $text-primary !important;
-    border-radius: 6px !important;
-
-    &:hover {
-      background-color: rgba(255,255,255,0.08) !important;
-      border-color: $border-strong !important;
-    }
-  }
-
-  .btn-outline-primary {
-    border-color: $necta-orange !important;
-    color: $necta-orange !important;
-    background: transparent !important;
-
-    &:hover {
-      background-color: $necta-orange !important;
-      color: #fff !important;
-    }
-  }
-
-
-  // ── Tables ───────────────────────────────────────────────────
-  table,
-  .table {
-    color: $text-primary !important;
-    border-color: $border-subtle !important;
-
-    thead th {
-      background-color: $bg-elevated !important;
-      color: $text-secondary !important;
-      border-bottom: 2px solid $border-default !important;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-    }
-
-    tbody tr {
-      border-color: $border-subtle !important;
-
-      td {
-        color: $text-primary !important;
-        border-color: $border-subtle !important;
-      }
-
-      &:hover td {
-        background-color: rgba(255,255,255,0.03) !important;
-      }
-
-      &:nth-child(even) td {
-        background-color: rgba(255,255,255,0.02) !important;
-      }
-    }
-  }
-
-
-  // ── Alerts & Notifications ───────────────────────────────────
-  .alert {
-    border-radius: 8px !important;
+  .secondary-navigation .dropdownmoremenu .dropdown-menu {
+    display: block !important;
+    position: static !important;
+    float: none !important;
+    width: 100% !important;
     border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: unset !important;
+    transform: none !important;
+  }
 
-    &.alert-info {
-      background-color: rgba(0, 196, 154, 0.12) !important;
-      color: $teal-accent !important;
-      border-left: 3px solid $teal-accent !important;
+  .secondary-navigation .dropdownmoremenu .dropdown-menu .nav-item {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .secondary-navigation .dropdownmoremenu .dropdown-menu .dropdown-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 9px 12px !important;
+    margin: 1px 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: var(--ink-2) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+
+    &:hover {
+      background: var(--surface-2) !important;
+      color: var(--ink) !important;
     }
 
-    &.alert-success {
-      background-color: rgba(34, 197, 94, 0.12) !important;
-      color: #4ade80 !important;
-      border-left: 3px solid #4ade80 !important;
-    }
-
-    &.alert-warning {
-      background-color: rgba(251, 191, 36, 0.12) !important;
-      color: #fbbf24 !important;
-      border-left: 3px solid #fbbf24 !important;
-    }
-
-    &.alert-danger,
-    &.alert-error {
-      background-color: rgba(239, 68, 68, 0.12) !important;
-      color: #f87171 !important;
-      border-left: 3px solid #f87171 !important;
+    &.active,
+    &.active_tree_node {
+      color: var(--brand-orange) !important;
+      background: color-mix(in srgb, var(--brand-orange) 10%, transparent) !important;
+      font-weight: 600 !important;
+      box-sizing: border-box !important;
     }
   }
 
-
-  // ── Breadcrumbs ──────────────────────────────────────────────
-  .breadcrumb {
-    background-color: transparent !important;
-
-    .breadcrumb-item {
-      color: $text-muted !important;
-
-      a {
-        color: $text-secondary !important;
-
-        &:hover {
-          color: $necta-orange-light !important;
-        }
-      }
-
-      &.active {
-        color: $text-primary !important;
-      }
-
-      + .breadcrumb-item::before {
-        color: $text-muted !important;
-      }
-    }
+  // ── Content area ─────────────────────────────────────────────────────
+  #page-content {
+    margin-left: 240px !important;
+    padding: 0 28px 28px !important;
   }
 
-
-  // ── Modals ───────────────────────────────────────────────────
-  .modal-content {
-    background-color: $bg-card !important;
-    border: 1px solid $border-default !important;
-    box-shadow: $shadow-lg !important;
-    color: $text-primary !important;
+  #region-main {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
   }
 
-  .modal-header {
-    border-bottom: 1px solid $border-subtle !important;
-    background-color: $bg-elevated !important;
+  // ── moremenu position fix ─────────────────────────────────────────────
+  .moremenu.navigation.observed {
+    position: relative;
+    left: 0px !important;
+  }
+}
 
-    .modal-title {
-      color: $text-primary !important;
-    }
-
-    .close,
-    .btn-close {
-      color: $text-secondary !important;
-      filter: invert(0.7);
-    }
+// ---------------------------------------------------------------------------
+// Real Edwiser Course Format polish.
+// ---------------------------------------------------------------------------
+body.format-remuiformat {
+  #page-content,
+  .main-inner,
+  #region-main {
+    background: #f3f6fb !important;
   }
 
-  .modal-footer {
-    border-top: 1px solid $border-subtle !important;
-    background-color: $bg-elevated !important;
+  #region-main {
+    border: 0 !important;
+    box-shadow: none !important;
   }
 
-  .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.75) !important;
+  #theme_boost-drawers-courseindex {
+    background: #fff !important;
+    border-right: 1px solid #dfe7f3 !important;
+    box-shadow: 18px 0 40px rgba(15, 23, 42, 0.08) !important;
   }
 
-  [data-region="confirm-dialogue"] {
-    background-color: $bg-card !important;
+  #theme_boost-drawers-courseindex .courseindex .courseindex-section {
+    border: 1px solid #cfe0fb !important;
+    background: #eaf2ff !important;
+    margin-bottom: 6px !important;
+  }
+
+  #theme_boost-drawers-courseindex .courseindex .courseindex-item:hover,
+  #theme_boost-drawers-courseindex .courseindex .courseindex-item.pageitem {
+    background: #dbeafe !important;
+    color: #1d4ed8 !important;
+  }
+
+  .remui-format-card,
+  .remui-format-list,
+  #card-container,
+  #list-container {
+    background: transparent !important;
+  }
+
+  .wdm-card,
+  .remui-format-card .section,
+  .remui-format-list .section,
+  .activities-list .activity,
+  .activity-wrapper {
     border-radius: 8px !important;
-    color: $text-primary !important;
+  }
 
-    .text-muted {
-      color: $text-secondary !important;
+  .activity-item {
+    border-radius: 8px !important;
+    border-color: #dfe7f3 !important;
+  }
+
+  .section_goto,
+  .card-section-leftnav a,
+  .card-section-rightnav a {
+    border-radius: 6px !important;
+  }
+}
+// ---------------------------------------------------------------------------
+// Edwiser remuiformat — section name visibility fix
+// ---------------------------------------------------------------------------
+body.format-remuiformat {
+
+  // Section name in card header — force dark text on light orange backgrounds
+  .single-card .section-card-header .sectionname,
+  .single-card .d-flex .sectionname,
+  .remui-format-card .sectionname,
+  .wdm-card .sectionname,
+  #card-container .sectionname,
+  .card-section-header .sectionname,
+  h2.sectionname,
+  .section-title .sectionname {
+    color: #000000 !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  // Also target the anchor inside sectionname (Moodle wraps it in <a>)
+  .sectionname a,
+  h2.sectionname a,
+  .single-card .sectionname a,
+  .wdm-card .sectionname a,
+  .remui-format-card .sectionname a {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+
+    &:hover {
+      color: var(--brand-orange) !important;
+      -webkit-text-fill-color: var(--brand-orange) !important;
     }
   }
 
+  // The specific selector DevTools shows for the h2
+  .section-card-header h2.sectionname.m-0.d-inline.bg-transparent.text-clamp {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+}
+// ---------------------------------------------------------------------------
+// Edwiser demo match — section cards + activity cards polish
+// ---------------------------------------------------------------------------
+body.format-remuiformat {
 
-  // ── Pagination ───────────────────────────────────────────────
-  .pagination {
-    .page-item {
-      .page-link {
-        background-color: $bg-elevated !important;
-        border-color: $border-default !important;
-        color: $text-secondary !important;
-        transition: all 0.2s ease;
+  // Section cards — match demo image cards with light orange
+  .single-card,
+  .wdm-card,
+  #card-container .card {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+    border: 1px solid #fed7aa !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    background:  #fffbf0 !important;
 
-        &:hover {
-          background-color: rgba(255,255,255,0.08) !important;
-          color: $text-primary !important;
-        }
-      }
-
-      &.active .page-link {
-        background-color: $necta-orange !important;
-        border-color: $necta-orange !important;
-        color: #fff !important;
-      }
-
-      &.disabled .page-link {
-        background-color: $bg-surface !important;
-        color: $text-muted !important;
-        border-color: $border-subtle !important;
-      }
+    &:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 12px 32px rgba(255,127,39,0.15) !important;
     }
   }
 
+  // Section card footer
+  .section-card-footer {
+    background: transparent !important;
+    border-top: none !important;
+  }
 
-  // ── Progress Bars ────────────────────────────────────────────
-  .progress {
-    background-color: $bg-elevated !important;
-    border-radius: 99px !important;
-    height: 6px;
+  // Section card header — content count text
+  
+  // Activity cards — white box style like demo
+  .activity-card,
+  .remui-activity-card,
+  .single-activity-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 16px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    margin-bottom: 8px !important;
 
-    .progress-bar {
-      background-color: $necta-orange !important;
-      border-radius: 99px !important;
+    &:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
     }
   }
 
+  // Activity icon — match demo colorful rounded icons
+  .activityiconcontainer {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
 
-  // ── Badges ───────────────────────────────────────────────────
-  .badge-primary,
-  .badge.bg-primary {
-    background-color: $necta-orange !important;
+  // Mark as done button
+  .btn-activity-complete,
+  .activity-completion button,
+  .mark-as-done-button {
+    border: 1px solid #cbd5e1 !important;
+    background: transparent !important;
+    color: #475569 !important;
+    border-radius: 6px !important;
+    padding: 6px 18px !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    margin-top: 12px !important;
+    display: block !important;
+    text-align: center !important;
+    transition: all 0.15s ease !important;
+
+    &:hover {
+      background: #f1f5f9 !important;
+      border-color: #94a3b8 !important;
+    }
+  }
+
+  // Done state — green button
+  .activity-completion.complete button,
+  .btn-activity-complete.complete {
+    background: #16a34a !important;
+    border-color: #16a34a !important;
     color: #fff !important;
   }
 
-  .badge-secondary,
-  .badge.bg-secondary {
-    background-color: $bg-elevated !important;
-    color: $text-secondary !important;
-    border: 1px solid $border-default !important;
+  // Section summary / description text
+  .section-summary,
+  .section-description {
+    font-size: 0.88rem !important;
+    color: #64748b !important;
+    line-height: 1.55 !important;
+    margin-bottom: 12px !important;
   }
 
-
-  // ── Scrollbar ────────────────────────────────────────────────
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  // Overall page background
+  #page-content,
+  .main-inner,
+  #region-main {
+    background: #f3f6fb !important;
   }
+}
 
-  ::-webkit-scrollbar-track {
-    background: $bg-base;
+// ---------------------------------------------------------------------------
+// Edwiser demo match — section name, activity cards, completion buttons
+// ---------------------------------------------------------------------------
+body.format-remuiformat {
+
+  // ── Section name — dark text on light orange cards ──────────
+  .single-card .content .section-header h2.sectionname,
+  .single-card .content h2.sectionname,
+  .remui-format-card .sectionname,
+  .wdm-card .sectionname,
+  #card-container .sectionname,
+  .card-section-header .sectionname,
+  h2.sectionname,
+  .section-title .sectionname {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    text-shadow: none !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
   }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: $border-strong;
-    border-radius: 99px;
-
+  
+  .sectionname a,
+  h2.sectionname a,
+  .single-card .sectionname a,
+  .wdm-card .sectionname a {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-weight: 700 !important;
+    
     &:hover {
-      background-color: $text-muted;
+      color: var(--brand-orange) !important;
+      -webkit-text-fill-color: var(--brand-orange) !important;
     }
   }
 
-
-  // ── Utility overrides ────────────────────────────────────────
-  .bg-white,
-  .bg-light {
-    background-color: $bg-card !important;
-    color: $text-primary !important;
+  // ── Activity count text ────────────────────────────────────────────
+  .necta-activity-count {
+    color: #666666 !important;
+    font-size: 0.78rem !important;
+    font-weight: 400 !important;
+    margin-top: 4px !important;
+    text-shadow: none !important;
   }
 
-  .border,
-  .border-bottom,
-  .border-top {
-    border-color: $border-subtle !important;
+  // ── Activity cards — white box style ──────────────────────────────
+  .general-section-activities .activity {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 16px 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    margin: 6px !important;
+
+    &:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
+    }
   }
 
-  .bg-pulse-grey {
-    background-color: $bg-elevated !important;
+  // ── Activity icon container ────────────────────────────────────────
+  .general-section-activities .activityiconcontainer {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 12px !important;
+    margin: 0 auto 8px !important;
   }
 
-  #page .drawer-toggles {
-    background-color: transparent !important;
-  }
-
-
-  // ── Activity / Resource icons ────────────────────────────────
-  .activityiconcontainer,
-  .activity-icon {
-    filter: brightness(0.85) saturate(0.8);
-  }
-
-
-  // ── Footer ───────────────────────────────────────────────────
-  #page-footer,
-  footer {
-    background-color: $bg-nav !important;
-    border-top: 1px solid $border-subtle !important;
-    color: $text-muted !important;
+  // ── Activity title ─────────────────────────────────────────────────
+  .general-section-activities .title-activity-container {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    text-align: center !important;
+    margin-top: 4px !important;
 
     a {
-      color: $text-secondary !important;
+      color: #1e293b !important;
+      text-decoration: none !important;
 
       &:hover {
-        color: $necta-orange-light !important;
+        color: var(--brand-orange) !important;
       }
     }
   }
 
-  .necta-footer-legal {
-    background-color: $bg-nav !important;
-    color: $text-muted !important;
-    border-bottom: 1px solid $border-subtle !important;
-  }
-
-  .footer-content-popover {
-    background-color: $bg-elevated !important;
-    color: $text-primary !important;
-
-    .footer-section {
-      border-bottom: 1px solid $border-subtle !important;
-
-      a {
-        color: $text-secondary !important;
-
-        &:hover {
-          color: $necta-orange-light !important;
-        }
-      }
-
-      .logininfo {
-        color: $text-secondary !important;
-      }
-    }
-  }
-
-  .btn-footer-popover {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-secondary !important;
-
-    &:hover {
-      background-color: $bg-card-hover !important;
-      color: $text-primary !important;
-    }
-  }
-
-
-  // ── Login Page ───────────────────────────────────────────────
-  // Selectors matched exactly to the real Moodle HTML structure
-
-  // Page shell & outer wrapper
-  #page-login-index,
-  body.necta-login,
-  #page-login-index #page-wrapper,
-  #page-login-index #page.necta-login-page {
-    background-color: $bg-base !important;
-    color: $text-primary !important;
-  }
-
-  // Full-page split row
-  #page-login-index .necta-login-split {
-    min-height: 100vh !important;
-    background-color: $bg-base !important;
-  }
-
-  // ── Left branding panel (aside.necta-login-brand) ───────────
-  #page-login-index .necta-login-brand {
-    background-color: $bg-surface !important;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px) !important;
-    background-size: 48px 48px !important;
-    border-right: 1px solid $border-subtle !important;
-  }
-
-  #page-login-index .necta-login-brand-inner {
-    padding: 2.5rem !important;
-  }
-
-  #page-login-index .necta-login-brand-title {
-    color: $text-primary !important;
-    font-weight: 700 !important;
-  }
-
-  #page-login-index .necta-login-brand-tagline {
-    color: $text-muted !important;
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-  }
-
-  // ── Right form column (div.necta-login-form-col) ─────────────
-  #page-login-index .necta-login-form-col {
-    background-color: $bg-base !important;
-  }
-
-  // ── Login card wrapper (div.necta-login-card) ────────────────
-  #page-login-index .necta-login-card {
-    background-color: $bg-card !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 12px !important;
-    box-shadow: $shadow-lg, $shadow-glow !important;
-    overflow: hidden;
-    max-width: 440px !important;
-  }
-
-  // ── Inner login form (div.loginform) ─────────────────────────
-  #page-login-index .loginform {
-    background-color: $bg-card !important;
-    padding: 2rem !important;
-  }
-
-  // Logo inside form — hide the duplicate (brand panel already shows it)
-  #page-login-index #loginlogo {
-    display: none !important;
-  }
-
-  // ── Form inputs ───────────────────────────────────────────────
-  #page-login-index .login-form-username .form-control,
-  #page-login-index .login-form-password .form-control,
-  #page-login-index input[type="text"],
-  #page-login-index input[type="password"] {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-primary !important;
-    border-radius: 6px !important;
-    font-size: 0.95rem !important;
-
-    &::placeholder {
-      color: $text-muted !important;
-    }
-
-    &:focus {
-      background-color: $bg-elevated !important;
-      border-color: $necta-orange !important;
-      box-shadow: 0 0 0 3px rgba($necta-orange, 0.18) !important;
-      color: $text-primary !important;
-      outline: none !important;
-    }
-  }
-
-  // Form field spacing
-  #page-login-index .login-form-username,
-  #page-login-index .login-form-password,
-  #page-login-index .login-form-submit,
-  #page-login-index .login-form-forgotpassword {
-    margin-bottom: 1rem !important;
-  }
-
-  // ── Log in button (#loginbtn) ─────────────────────────────────
-  #page-login-index #loginbtn,
-  #page-login-index .login-form-submit .btn-primary {
-    background-color: $necta-orange !important;
-    border-color: $necta-orange !important;
-    color: #fff !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 6px !important;
-    width: 100% !important;
-    padding: 0.65rem 1rem !important;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-
-    &:hover {
-      background-color: $necta-orange-light !important;
-      border-color: $necta-orange-light !important;
-      box-shadow: 0 4px 12px rgba($necta-orange, 0.35) !important;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      background-color: $necta-orange-dim !important;
-      transform: translateY(0);
-    }
-  }
-
-  // ── "Lost password?" link ─────────────────────────────────────
-  #page-login-index .login-form-forgotpassword a {
-    color: $text-muted !important;
-    font-size: 0.82rem !important;
-    text-decoration: underline !important;
-
-    &:hover {
-      color: $necta-orange-light !important;
-    }
-  }
-
-  // ── Divider between form and guest area ───────────────────────
-  #page-login-index .login-divider {
-    border-top: 1px solid $border-subtle !important;
-    margin: 1.25rem 0 !important;
-  }
-
-  // ── Guest login heading ───────────────────────────────────────
-  #page-login-index .login-heading {
-    color: $text-muted !important;
+  // ── Activity summary/description ───────────────────────────────────
+  .general-section-activities .contentafterlink {
     font-size: 0.78rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.06em !important;
-    text-transform: uppercase !important;
-    margin-bottom: 0.75rem !important;
+    color: #64748b !important;
+    text-align: center !important;
+    margin-top: 4px !important;
+    line-height: 1.4 !important;
   }
 
-  // ── "Access as a guest" button (#loginguestbtn) ───────────────
-  #page-login-index #loginguestbtn,
-  #page-login-index #guestlogin .btn-secondary {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-secondary !important;
+  // ── Completion button — Mark as done ──────────────────────────────
+  .general-section-activities .actions .btn {
+    border: 1px solid #cbd5e1 !important;
+    background: transparent !important;
+    color: #475569 !important;
     border-radius: 6px !important;
-    font-size: 0.88rem !important;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    padding: 5px 12px !important;
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    display: block !important;
+    text-align: center !important;
+    transition: all 0.15s ease !important;
 
     &:hover {
-      background-color: rgba(255,255,255,0.08) !important;
-      border-color: $border-strong !important;
-      color: $text-primary !important;
+      background: #f1f5f9 !important;
+      border-color: #94a3b8 !important;
     }
   }
 
-  // ── "Cookies notice" button ───────────────────────────────────
-  #page-login-index .btn[data-modal="alert"] {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-muted !important;
+  // ── Done state — green ─────────────────────────────────────────────
+  .general-section-activities .actions .btn.btn-success,
+  .general-section-activities .actions .btn[data-completionstate="1"] {
+    background: #16a34a !important;
+    border-color: #16a34a !important;
+    color: #ffffff !important;
+  }
+
+  // ── Open/due dates ─────────────────────────────────────────────────
+  .general-section-activities .activity-dates {
+    font-size: 0.72rem !important;
+    color: #64748b !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 6px !important;
-    font-size: 0.8rem !important;
+    padding: 4px 8px !important;
+    margin-top: 6px !important;
+    text-align: left !important;
+  }
+
+  // ── Section card hover lift ────────────────────────────────────────
+  .single-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 
     &:hover {
-      color: $text-secondary !important;
-      border-color: $border-strong !important;
+      transform: translateY(-6px) !important;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.28) !important;
     }
   }
 
-  // ── Error / session-timeout alert ────────────────────────────
-  #page-login-index #user-notifications .alert-danger,
-  #page-login-index .alert-danger,
-  #page-login-index .loginerrors {
-    background-color: rgba(239, 68, 68, 0.12) !important;
-    color: #f87171 !important;
-    border: none !important;
-    border-left: 3px solid #f87171 !important;
-    border-radius: 0 6px 6px 0 !important;
-    margin-bottom: 1rem !important;
-  }
-
-  // ── Footer (#page-footer.footer-popover) ─────────────────────
-  #page-login-index #page-footer {
-    background-color: $bg-nav !important;
-    border-top: 1px solid $border-subtle !important;
-  }
-
-  // Legal bar
-  #page-login-index .necta-footer-legal {
-    color: $text-muted !important;
-    border-bottom: 1px solid $border-subtle !important;
-    background-color: $bg-nav !important;
-  }
-
-  // Footer popover toggle button
-  #page-login-index .btn-footer-popover {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-secondary !important;
+  // ── Let's Start button polish ──────────────────────────────────────
+  .necta-lets-start-btn,
+  .section_goto,
+  .card-section-leftnav a,
+  .card-section-rightnav a {
+    background-color: var(--brand-orange) !important;
+    border-color: var(--brand-orange) !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    transition: background 0.2s ease !important;
 
     &:hover {
-      background-color: $necta-orange !important;
-      border-color: $necta-orange !important;
-      color: #fff !important;
-    }
-
-    .icon {
-      color: inherit !important;
-    }
-  }
-
-  // Footer content popover
-  #page-login-index .footer-content-popover {
-    background-color: $bg-elevated !important;
-    color: $text-primary !important;
-
-    .footer-section {
-      border-bottom: 1px solid $border-subtle !important;
-
-      .logininfo {
-        color: $text-secondary !important;
-      }
-
-      a {
-        color: $text-secondary !important;
-
-        &:hover {
-          color: $necta-orange-light !important;
-        }
-      }
-    }
-  }
-
-
-  // ── Dashboard Blocks ─────────────────────────────────────────
-  .block_timeline,
-  .block_recentlyaccessedcourses,
-  .block_myoverview {
-    background-color: $bg-card !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 10px !important;
-
-    .card {
-      background-color: $bg-elevated !important;
-    }
-  }
-
-  // Course overview cards (My Courses page)
-  .dashboard-card,
-  [data-region="course-card"] {
-    background-color: $bg-card !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 10px !important;
-    transition: transform 0.2s ease, box-shadow 0.25s ease;
-
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: $shadow-md, $shadow-glow !important;
-      border-color: rgba($necta-orange, 0.3) !important;
-    }
-  }
-
-  // Completion checkboxes
-  .autocompletion img,
-  .completion-icon {
-    filter: hue-rotate(10deg) brightness(0.85);
-  }
-
-  // Grade book
-  .gradeparent table thead th {
-    background-color: $bg-elevated !important;
-  }
-
-
-  // ── NECTA Learner Dashboard Block ───────────────────────────
-  .necta-dashboard {
-    background-color: $bg-card !important;
-    color: $text-primary !important;
-  }
-
-  .necta-hero {
-    background-color: $bg-card !important;
-    border-bottom: 1px solid $border-subtle !important;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-
-    .hero-greeting {
-      color: $text-primary !important;
-      font-size: 1.6rem !important;
-      font-weight: 600 !important;
-    }
-
-    .hero-meta {
-      color: $text-muted !important;
-
-      span {
-        color: $text-muted !important;
-      }
-
-      i {
-        color: $necta-orange !important;
-      }
-    }
-  }
-
-  .continue-card {
-    background-color: $necta-orange !important;
-    border-radius: 8px !important;
-    margin-bottom: 1rem;
-
-    .cc-eyebrow {
-      color: rgba(255,255,255,0.8) !important;
-    }
-
-    .cc-title {
-      color: #fff !important;
-    }
-
-    .cc-meta span {
-      color: rgba(255,255,255,0.85) !important;
-    }
-
-    .cc-progress {
-      background-color: rgba(0,0,0,0.2) !important;
-      border-radius: 99px !important;
-      height: 4px;
-
-      .cc-progress-fill {
-        background-color: #fff !important;
-        border-radius: 99px !important;
-      }
-    }
-
-    .cc-btn {
-      background-color: rgba(255,255,255,0.15) !important;
-      border: 1px solid rgba(255,255,255,0.35) !important;
-      color: #fff !important;
-      border-radius: 6px !important;
-
-      &:hover {
-        background-color: rgba(255,255,255,0.25) !important;
-      }
-    }
-  }
-
-  .necta-two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .necta-card {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 8px !important;
-    padding: 1rem !important;
-
-    .card-title,
-    h2.card-title {
-      color: $text-secondary !important;
-      font-size: 0.7rem !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.08em !important;
-      text-transform: uppercase !important;
-      margin-bottom: 0.75rem !important;
-    }
-
-    .text-muted,
-    p.text-muted {
-      color: $text-muted !important;
-    }
-  }
-
-  .necta-section .section-label,
-  h2.section-label {
-    color: $text-secondary !important;
-    font-size: 0.7rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  .assessment-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    .ar-title {
-      color: $text-primary !important;
-      font-weight: 500;
-      flex: 1;
-    }
-
-    .ar-due {
-      color: $text-muted !important;
-      font-size: 0.8rem;
-    }
-  }
-
-  .status-pill {
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 99px;
-    font-weight: 600;
-
-    &.overdue {
-      background-color: rgba(239, 68, 68, 0.15) !important;
-      color: #f87171 !important;
-      border: 1px solid rgba(239,68,68,0.25) !important;
-    }
-
-    &.due-soon {
-      background-color: rgba(251,191,36,0.15) !important;
-      color: #fbbf24 !important;
-      border: 1px solid rgba(251,191,36,0.25) !important;
-    }
-
-    &.submitted,
-    &.complete {
-      background-color: rgba(34,197,94,0.15) !important;
-      color: #4ade80 !important;
-      border: 1px solid rgba(34,197,94,0.25) !important;
-    }
-  }
-
-
-  // ── Course Grid (Dashboard) ──────────────────────────────────
-  .course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .course-card {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-subtle !important;
-    border-radius: 8px !important;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: $shadow-md !important;
-    }
-
-    .course-card-accent {
-      height: 3px;
-    }
-
-    .course-card-body {
-      padding: 0.75rem !important;
-    }
-
-    .cc-code {
-      color: $text-muted !important;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.2rem;
-    }
-
-    .cc-name {
-      color: $text-primary !important;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .cc-trainer {
-      color: $text-muted !important;
-      font-size: 0.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .prog-label,
-    .cc-next {
-      color: $text-muted !important;
-      font-size: 0.72rem;
-      margin-top: 0.2rem;
-    }
-  }
-
-  .progress-bar-necta {
-    background-color: $border-subtle !important;
-    border-radius: 99px !important;
-    height: 4px !important;
-    overflow: hidden;
-
-    .progress-bar-fill {
-      background-color: $necta-orange !important;
-      height: 100% !important;
-      border-radius: 99px !important;
-    }
-  }
-
-
-  // ── Calendar Block ───────────────────────────────────────────
-  .block_calendar_month,
-  [data-block="calendar_month"] {
-
-    .calendarwrapper,
-    .maincalendar {
-      background-color: $bg-card !important;
-      color: $text-primary !important;
-    }
-
-    .calendar-controls {
-      background-color: $bg-card !important;
-      color: $text-primary !important;
-      padding: 0.5rem 0;
-
-      h4.current {
-        color: $text-primary !important;
-        font-weight: 600;
-      }
-
-      .arrow_link,
-      a {
-        color: $text-secondary !important;
-
-        &:hover {
-          color: $necta-orange-light !important;
-        }
-      }
-    }
-
-    table.calendarmonth,
-    .calendartable {
-      background-color: $bg-card !important;
-      border-collapse: separate;
-      border-spacing: 2px;
-
-      thead th.header {
-        background-color: $bg-elevated !important;
-        color: $text-secondary !important;
-        font-size: 0.72rem !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.05em !important;
-        text-transform: uppercase !important;
-        padding: 6px 4px !important;
-        border: none !important;
-        border-radius: 4px !important;
-      }
-
-      tbody td {
-        background-color: transparent !important;
-        color: $text-secondary !important;
-        border: none !important;
-        border-radius: 4px !important;
-        vertical-align: top;
-        min-height: 40px;
-        transition: background-color 0.15s ease;
-
-        &.dayblank {
-          background-color: transparent !important;
-        }
-
-        &.weekend .day-number {
-          color: $text-muted !important;
-        }
-
-        &.today .day-number-circle {
-          background-color: $necta-orange !important;
-          border-radius: 50% !important;
-          padding: 2px 5px !important;
-
-          .day-number {
-            color: #fff !important;
-            font-weight: 700 !important;
-          }
-        }
-
-        &.hasevent {
-          background-color: rgba($necta-orange, 0.08) !important;
-
-          a.day,
-          a.aalink {
-            color: $necta-orange-light !important;
-          }
-        }
-
-        &.clickable:hover {
-          background-color: $bg-elevated !important;
-          cursor: pointer;
-        }
-
-        .day-number {
-          color: $text-secondary !important;
-          font-size: 0.82rem;
-        }
-
-        .eventname {
-          font-size: 0.72rem;
-          color: $necta-orange-light !important;
-        }
-
-        .calendar-circle {
-          background-color: $necta-orange !important;
-          border-radius: 50% !important;
-          width: 8px !important;
-          height: 8px !important;
-          display: inline-block;
-          margin-right: 3px;
-        }
-
-        ul {
-          list-style: none !important;
-          padding: 0 !important;
-          margin: 2px 0 0 !important;
-
-          li {
-            font-size: 0.7rem;
-
-            a {
-              color: $necta-orange-light !important;
-            }
-          }
-        }
-      }
-    }
-
-    select.cal_courses_flt,
-    .cal_courses_flt {
-      background-color: $bg-elevated !important;
-      border: 1px solid $border-default !important;
-      color: $text-primary !important;
-      border-radius: 6px !important;
-
-      &:focus {
-        border-color: $necta-orange !important;
-        box-shadow: 0 0 0 3px rgba($necta-orange, 0.15) !important;
-      }
-    }
-
-    .footer .bottom {
-      border-top: 1px solid $border-subtle !important;
-      padding-top: 0.5rem;
-
-      .footer-link a {
-        color: $necta-orange-light !important;
-        font-size: 0.8rem;
-
-        &:hover {
-          color: lighten($necta-orange-light, 10%) !important;
-        }
-      }
-    }
-
-    .btn-primary[data-action="new-event-button"] {
-      background-color: $necta-orange !important;
-      border-color: $necta-orange !important;
-      color: #fff !important;
-    }
-  }
-
-
-  // ── Recently Accessed Items Block ────────────────────────────
-  .block_recentlyaccesseditems,
-  [data-block="recentlyaccesseditems"] {
-
-    .block-recentlyaccesseditems {
-      background-color: $bg-card !important;
-    }
-
-    .card-deck.dashboard-card-deck {
-      background-color: transparent !important;
-    }
-
-    .card.dashboard-card {
-      background-color: $bg-elevated !important;
-      border: 1px solid $border-subtle !important;
-      border-radius: 8px !important;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        border-color: rgba($necta-orange, 0.3) !important;
-      }
-
-      .card-body {
-        background-color: transparent !important;
-      }
-
-      h6 {
-        color: $text-primary !important;
-        font-weight: 500;
-      }
-
-      small {
-        color: $text-muted !important;
-      }
-
-      .activityiconcontainer {
-        background-color: $bg-card !important;
-        border-radius: 6px !important;
-        padding: 4px !important;
-
-        img.icon {
-          filter: brightness(0) invert(0.7);
-        }
-      }
-
-      a {
-        color: inherit !important;
-        text-decoration: none !important;
-
-        &:hover h6 {
-          color: $necta-orange-light !important;
-        }
-      }
-    }
-  }
-
-
-  // ── Right-side Drawer ────────────────────────────────────────
-  .drawer-right,
-  #theme_boost-drawers-blocks {
-    background-color: $bg-surface !important;
-    border-left: 1px solid $border-subtle !important;
-
-    #block-region-side-pre {
-      background-color: transparent !important;
-
-      .block.card {
-        background-color: $bg-card !important;
-        border: 1px solid $border-subtle !important;
-        margin-bottom: 0.75rem !important;
-      }
-    }
-  }
-
-  .drawer-right-toggle .btn {
-    background-color: $bg-elevated !important;
-    border: 1px solid $border-default !important;
-    color: $text-secondary !important;
-    border-radius: 6px 0 0 6px !important;
-
-    &:hover {
-      background-color: $bg-card-hover !important;
-      color: $text-primary !important;
-    }
-
-    i {
-      color: $text-secondary !important;
-    }
-  }
-
-
-  // ── Message Drawer ───────────────────────────────────────────
-  #drawer-6a168a367f1c06a168a36686c27,
-  .drawer.bg-white,
-  [data-region="right-hand-drawer"] {
-    background-color: $bg-surface !important;
-    border-left: 1px solid $border-subtle !important;
-
-    .message-app {
-      background-color: $bg-surface !important;
-      color: $text-primary !important;
-    }
-
-    .simplesearchform .form-control {
-      background-color: $bg-elevated !important;
-      border-color: $border-default !important;
-      color: $text-primary !important;
-
-      &::placeholder {
-        color: $text-muted !important;
-      }
-    }
-
-    .input-group-text,
-    .btn-submit {
-      background-color: $bg-elevated !important;
-      border-color: $border-default !important;
-      color: $text-secondary !important;
-    }
-
-    .card-header {
-      background-color: $bg-elevated !important;
-      border-bottom: 1px solid $border-subtle !important;
-
-      .btn-link {
-        color: $text-primary !important;
-      }
-    }
-
-    .section.card {
-      background-color: $bg-surface !important;
-      border: none !important;
-    }
-
-    .list-group-item {
-      background-color: transparent !important;
-      border-color: $border-subtle !important;
-      color: $text-secondary !important;
-
-      &:hover {
-        background-color: $bg-elevated !important;
-        color: $text-primary !important;
-      }
-    }
-
-    [data-region="view-overview"] {
-      background-color: $bg-surface !important;
-      border-top: 1px solid $border-subtle !important;
-      padding: 0.5rem 0 !important;
-
-      a {
-        color: $necta-orange-light !important;
-      }
-    }
-  }
-
-
-  // ── Course Overview — search bar & filter controls ───────────
-  // Fixes the light-background search input, sort dropdown,
-  // display-mode select, and view-toggle in the My Courses block
-  .block_myoverview,
-  [data-region="myoverview"],
-  #page-course-index-my {
-
-    // Search input
-    .input-group .form-control,
-    input.form-control[placeholder="Search"],
-    [data-action="search"] {
-      background-color: $bg-elevated !important;
-      border: 1px solid $border-default !important;
-      color: $text-primary !important;
-
-      &::placeholder {
-        color: $text-muted !important;
-      }
-
-      &:focus {
-        background-color: $bg-elevated !important;
-        border-color: $necta-orange !important;
-        box-shadow: none !important;
-        color: $text-primary !important;
-        outline: none !important;
-      }
-    }
-
-    // All select dropdowns in the filter row
-    select,
-    .form-select,
-    select.form-control {
-      background-color: $bg-elevated !important;
-      border: 1px solid $border-default !important;
-      color: $text-secondary !important;
-
-      option {
-        background-color: $bg-elevated !important;
-        color: $text-primary !important;
-      }
-
-      &:focus {
-        border-color: $necta-orange !important;
-        box-shadow: none !important;
-        outline: none !important;
-      }
-    }
-
-    // Input-group buttons (prepend/append dropdowns, view toggles)
-    .input-group > .btn,
-    .input-group-prepend .btn,
-    .input-group-append .btn,
-    .input-group-text,
-    .btn.dropdown-toggle {
-      background-color: $bg-elevated !important;
-      border: 1px solid $border-default !important;
-      color: $text-secondary !important;
-
-      &:hover,
-      &:focus {
-        background-color: $bg-card-hover !important;
-        border-color: $border-strong !important;
-        color: $text-primary !important;
-      }
-    }
-
-    // Ensure no white bg bleeds through on the outer wrapper
-    .input-group,
-    .input-group-prepend,
-    .input-group-append {
-      background-color: transparent !important;
+      background-color: var(--brand-orange-deep) !important;
+      border-color: var(--brand-orange-deep) !important;
+      color: #ffffff !important;
     }
   }
 }
+// ---------------------------------------------------------------------------
+// Sidebar — Course Menu (FORCE SINGLE - KILL ALL DUPLICATES)
+// ---------------------------------------------------------------------------
+body.format-remuiformat {
+
+  // 1. DESTROY every possible pseudo-element that could add "Course Menu" EXCEPT .courseindex::before (we use that)
+  #theme_boost-drawers-courseindex::before,
+  #theme_boost-drawers-courseindex::after,
+  #theme_boost-drawers-courseindex .drawerheader::before,
+  #theme_boost-drawers-courseindex .drawerheader::after,
+  #theme_boost-drawers-courseindex .drawercontent::before,
+  #theme_boost-drawers-courseindex .drawercontent::after,
+  #theme_boost-drawers-courseindex .courseindex::after,
+  #theme_boost-drawers-courseindex .courseindex-wrapper::before,
+  #theme_boost-drawers-courseindex .courseindex-wrapper::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  // 2. If there's any HTML element with "Course Menu" text, hide the duplicate
+  // (This targets any element that contains exactly "Course Menu" text)
+  #theme_boost-drawers-courseindex .drawerheader:has(> :contains("Course Menu")),
+  #theme_boost-drawers-courseindex *:contains("Course Menu") {
+    // Note: :contains is not standard, but we use a different approach below
+  }
+
+  // 3. COMPLETELY HIDE THE DRAWERHEADER (it contains "Course Menu" text)
+  #theme_boost-drawers-courseindex .drawerheader {
+    display: none !important;
+  }
+  
+  // 4. Add the SINGLE "Course Menu" ONLY in the courseindex::before
+  #theme_boost-drawers-courseindex .courseindex::before {
+    content: "Course Menu" !important;
+    display: block !important;
+    font-family: var(--font-display) !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: var(--ink) !important;
+    padding: 16px 16px 12px 16px !important;
+    border-bottom: 2px solid var(--brand-orange) !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.02em !important;
+    background: transparent !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  // 6. Orange sidebar styling (keep this)
+  #theme_boost-drawers-courseindex .courseindex-section-title a,
+  #theme_boost-drawers-courseindex .courseindex-section-title {
+    color: var(--brand-orange) !important;
+    font-weight: 600 !important;
+  }
+
+  #theme_boost-drawers-courseindex .courseindex-item a {
+    color: var(--brand-orange) !important;
+    font-weight: 500 !important;
+    &:hover {
+      color: var(--brand-orange-deep) !important;
+      text-decoration: underline !important;
+    }
+  }
+
+  #theme_boost-drawers-courseindex .courseindex-item.pageitem a {
+    color: var(--brand-orange) !important;
+    font-weight: 600 !important;
+    border-left: 3px solid var(--brand-orange) !important;
+    padding-left: 8px !important;
+  }
+
+  #theme_boost-drawers-courseindex .courseindex-section .collapsed,
+  #theme_boost-drawers-courseindex .courseindex-chevron {
+    color: var(--brand-orange) !important;
+  }
+}
+
+// ============================================
+// Course Index Sidebar - Sharp Edges, All Orange Titles
+// ============================================
+
+body.format-remuiformat #theme_boost-drawers-courseindex {
+
+  .drawercontent {
+    background-color: #f8f9fa;
+    padding: 8px;
+  }
+
+  .courseindex {
+    padding: 4px 0;
+  }
+
+  // Each section block — sharp card style
+  .courseindex-section {
+    background: #ffffff;
+    border-radius: 0 !important;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+
+    // Section header row
+    .courseindex-section-title {
+      padding: 14px 16px;
+      background: #ffffff;
+      border-bottom: 1px solid #e9ecef;
+      cursor: pointer;
+
+      &:hover {
+        background: #f0f4f8;
+      }
+
+      .courseindex-link {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #e87722 !important;
+        text-decoration: none;
+
+        &:hover {
+          color: #c5611a !important;
+        }
+      }
+
+      .courseindex-chevron {
+        color: #e87722;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+      }
+    }
+
+    // Active / current section highlight
+    &[aria-selected="true"] {
+      .courseindex-section-title {
+        background: #fff8f0;
+        border-left: 4px solid #e87722;
+
+        .courseindex-link {
+          color: #e87722 !important;
+        }
+      }
+    }
+  }
+
+  // Activity items inside sections
+  .courseindex-item-content {
+    background: #ffffff;
+    padding: 4px 0;
+
+    .courseindex-item {
+      padding: 10px 16px 10px 28px;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.15s;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: #f5f7fa;
+      }
+
+      // Currently active activity
+      &.pageitem {
+        background: #fff3e8;
+        border-left: 3px solid #e87722;
+
+        .courseindex-link {
+          color: #e87722 !important;
+          font-weight: 600;
+        }
+      }
+
+      .courseindex-link {
+        font-size: 0.875rem;
+        color: #e87722 !important;
+        text-decoration: none;
+        line-height: 1.4;
+
+        &:hover {
+          color: #c5611a !important;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // Clean up clutter
+  .dragicon, .courseindex-locked {
+    display: none !important;
+  }
+
+  .current-badge {
+    display: none !important;
+  }
+
+  &#theme_boost-drawers-courseindex .drawerheader,
+.drawerheader {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+}
+
+body.format-remuiformat #theme_boost-drawers-courseindex .drawerheader {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+// Kill duplicate Course Menu on div#course-index
+body.format-remuiformat #theme_boost-drawers-courseindex div#course-index::before,
+body.format-remuiformat #theme_boost-drawers-courseindex div.courseindex::before {
+  content: none !important;
+  display: none !important;
+}
+
+body.format-remuiformat .general-section-activities .actions .btn {
+  background-color: var(--brand-orange) !important;
+  border-color: var(--brand-orange) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 10px 20px !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  margin-top: 12px !important;
+  display: block !important;
+  text-align: center !important;
+  transition: background 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--brand-orange-deep) !important;
+    border-color: var(--brand-orange-deep) !important;
+    color: #ffffff !important;
+  }
+}
+
+// Completed state — green
+body.format-remuiformat .general-section-activities .actions .btn.btn-success,
+body.format-remuiformat .general-section-activities .actions .btn[data-completionstate="1"] {
+  background-color: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #ffffff !important;
+}
+
+body.format-remuiformat .general-section-activities {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+}
+
+body.format-remuiformat .general-section-activities .activity {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  
+}
+
+body.format-remuiformat .general-section-activities .activity .actions {
+  margin-top: auto !important;
+  padding-top: 12px !important;
+}
+
+body.format-remuiformat .general-section-activities .activity-information,
+body.format-remuiformat .general-section-activities div[data-region="activity-information"] {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+body.format-remuiformat .general-section-activities div[data-region="completion-info"] {
+  margin-top: auto !important;
+}
+
+body.format-remuiformat .general-section-activities div[data-region="completion-info"] .btn,
+body.format-remuiformat .general-section-activities button.btn-secondary {
+  background-color: var(--brand-orange) !important;
+  border-color: var(--brand-orange) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 10px 20px !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+  margin-top: 12px !important;
+
+  &:hover {
+    background-color: var(--brand-orange-deep) !important;
+    border-color: var(--brand-orange-deep) !important;
+  }
+}
+// Section card header — content count text
+.section-card-header,
+.single-card .card-header,
+.wdm-card .card-header {
+  background: transparent !important;
+  border: none !important;
+  padding: 80px 16px 12px !important;
+}
+
 
